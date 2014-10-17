@@ -1,14 +1,14 @@
+import org.newdawn.slick.Animation;
 import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.BasicGame;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
-import org.newdawn.slick.SlickException;
-import org.newdawn.slick.imageout.ImageOut;
 import org.newdawn.slick.Image;
-// http://frums.nl/index/showpost/2/
-// ^helpful^
+import org.newdawn.slick.SlickException;
+// http://untamed.wild-refuge.net/rmxpresources.php?characters
 public class SlickGame extends BasicGame{
-	private Image test;
+	// private int[] duration = {500,500,500};
+	
 	public static void main(String[] args) throws SlickException {
 		AppGameContainer startScreen = new AppGameContainer(new SlickGame("Setup Test"));
 		startScreen.setTargetFrameRate(60);
@@ -18,25 +18,22 @@ public class SlickGame extends BasicGame{
 	
 	public SlickGame(String title) {
 		super(title);
-		// TODO Auto-generated constructor stub
+
 	}
 	
 	@Override
 	public void render(GameContainer arg0, Graphics arg1) throws SlickException {
-		// TODO Auto-generated method stub
-		test.draw(100,100);
-	}
-
-	@Override
-	public void init(GameContainer arg0) throws SlickException {
-		// TODO Auto-generated method stub
-		test = new Image("testdata/thelegend.png");
-	}
-
-	@Override
-	public void update(GameContainer arg0, int arg1) throws SlickException {
-		// TODO Auto-generated method stub
 		
 	}
+		
+	@Override
+	public void init(GameContainer arg0) throws SlickException {
+		// Image[] test = {"testdata/thelegend.png"};
+		// new Animation(test, duration, false);	
+	}
+		
+	@Override
+	public void update(GameContainer arg0, int arg1) throws SlickException {
 
+	}
 }
