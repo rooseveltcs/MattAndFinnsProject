@@ -1,17 +1,15 @@
-import org.newdawn.slick.Animation;
 import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.BasicGame;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
-import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 // http://untamed.wild-refuge.net/rmxpresources.php?characters
+
 public class SlickGame extends BasicGame{
-	// private int[] duration = {500,500,500};
-	
+	public static final int STARTSCREEN = 0;
 	public static void main(String[] args) throws SlickException {
 		AppGameContainer startScreen = new AppGameContainer(new SlickGame("Setup Test"));
-		startScreen.setTargetFrameRate(60);
+		// startScreen.setTargetFrameRate(60);
 		startScreen.setDisplayMode(500, 500, false);		
 		startScreen.start();
 	}
@@ -21,6 +19,16 @@ public class SlickGame extends BasicGame{
 
 	}
 	
+	public void initStatesList(GameContainer arg0) throws SlickException {
+		// TODO Auto-generated method stub
+		addState(new StartScreen());
+	}
+	
+	private void addState(StartScreen startScreen2) {
+		// TODO Auto-generated method stub
+		
+	}
+
 	@Override
 	public void render(GameContainer arg0, Graphics arg1) throws SlickException {
 		
@@ -28,8 +36,7 @@ public class SlickGame extends BasicGame{
 		
 	@Override
 	public void init(GameContainer arg0) throws SlickException {
-		// Image[] test = {"testdata/thelegend.png"};
-		// new Animation(test, duration, false);	
+		
 	}
 		
 	@Override
