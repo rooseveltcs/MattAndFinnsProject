@@ -4,6 +4,9 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
 // http://untamed.wild-refuge.net/rmxpresources.php?characters
 
+import startscreen.StartScreen;
+
+
 public class SlickGame extends StateBasedGame{
 	public static final int STARTSCREEN = 0;
 	public static void main(String[] args) throws SlickException {

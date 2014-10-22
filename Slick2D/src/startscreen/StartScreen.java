@@ -1,3 +1,5 @@
+package startscreen;
+
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
@@ -6,13 +8,15 @@ import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
 
-public class Map extends BasicGameState {
-
+public class StartScreen extends BasicGameState {
+	private Image test; 
 
 	@Override
 	public void render(GameContainer arg0, StateBasedGame arg1, Graphics arg2)
 			throws SlickException {
 		// TODO Auto-generated method stub
+		test = new Image("testdata/dungeontiles.gif");	
+		test.draw();
 	}
 
 	@Override
@@ -30,6 +34,6 @@ public class Map extends BasicGameState {
 	@Override
 	public int getID() {
 		// TODO Auto-generated method stub
-		return 1;
+		return 0;
 	}
 }
