@@ -6,7 +6,7 @@ import org.newdawn.slick.state.StateBasedGame;
 
 import startscreen.StartScreen;
 
-
+// this is so i can commit -_-
 public class SlickGame extends StateBasedGame{
 	public static final int STARTSCREEN = 0;
 	public static void main(String[] args) throws SlickException {
