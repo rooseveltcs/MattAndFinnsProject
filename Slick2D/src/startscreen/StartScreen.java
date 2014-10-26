@@ -9,14 +9,19 @@ import org.newdawn.slick.state.StateBasedGame;
 
 
 public class StartScreen extends BasicGameState {
-	private Image test; 
+	// private Image test; 
 
 	@Override
-	public void render(GameContainer arg0, StateBasedGame arg1, Graphics arg2)
+	public void render(GameContainer arg0, StateBasedGame arg1, Graphics g)
 			throws SlickException {
+		
+		g.drawString("This werked i hope", 150, 250);
+		g.drawString("This worked i hope", 150, 350);
+		g.drawString("This worked?", 150, 300);
+		
 		// TODO Auto-generated method stub
-		test = new Image("testdata/cursor.png");	
-		test.draw();
+		// test = new Image("testdata/cursor.png");	
+		// test.draw();
 	}
 
 	@Override
