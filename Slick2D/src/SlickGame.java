@@ -10,9 +10,9 @@ import startscreen.StartScreen;
 public class SlickGame extends StateBasedGame{
 	public static final int STARTSCREEN = 0;
 	public static void main(String[] args) throws SlickException {
-		AppGameContainer gameframe = new AppGameContainer(new SlickGame("Setup Test"));
+		AppGameContainer gameframe = new AppGameContainer(new SlickGame("Game"));
 		// startScreen.setTargetFrameRate(60);
-		gameframe.setDisplayMode(500, 500, false);		
+		gameframe.setDisplayMode(1000, 750, false);		
 		gameframe.start();
 	}
 	
