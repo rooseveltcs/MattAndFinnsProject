@@ -5,7 +5,7 @@ import org.newdawn.slick.state.StateBasedGame;
 // http://untamed.wild-refuge.net/rmxpresources.php?characters
 
 import startscreen.StartScreen;
-
+// test
 // this is so i can commit -_-
 public class SlickGame extends StateBasedGame{
 	public static final int STARTSCREEN = 0;
