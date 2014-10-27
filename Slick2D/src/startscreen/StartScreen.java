@@ -24,7 +24,7 @@ public class StartScreen extends BasicGameState implements KeyListener{
 	public void render(GameContainer gc, StateBasedGame arg1, Graphics g)
 			throws SlickException {
 			frame.draw();
-			gc.setMouseCursor(pointer, 10, 10);
+			
 			g.setColor(Color.blue);
 			
 			g.drawString(optionOne, menuX, menuY);
@@ -37,13 +37,14 @@ public class StartScreen extends BasicGameState implements KeyListener{
 	public void init(GameContainer gc, StateBasedGame arg1)
 			throws SlickException {
 			frame = new Image("testdata/blueframe2.png");	
-			pointer = new Image("testdata/star.png");
+			pointer = new Image("testdata/star4.png");
+			gc.setMouseCursor(pointer, 10, 10);
 	}
 
 	@Override
 	public void update(GameContainer gc, StateBasedGame sbg, int arg2)
 			throws SlickException {
-		 	
+			
 	}
 
 	@Override
@@ -55,14 +56,15 @@ public class StartScreen extends BasicGameState implements KeyListener{
 	@Override
 	public void keyPressed(int key, char c) {
 		if(key == Input.KEY_ENTER){
+			// goes to the map
 			System.out.println("enter");
 		}else if(key == Input.KEY_ESCAPE){
-			System.out.println("escape");
+			System.exit(0);
 		}else if(key == Input.KEY_TAB){
+			// not sure what this will do yet
 			System.out.println("tab");
 		}else{
 			// nothing happens...
-			System.out.println("this will never happen");
 		}
 	}
 	@Override
