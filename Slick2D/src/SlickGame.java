@@ -10,20 +10,23 @@ import startscreen.StartScreen;
 public class SlickGame extends StateBasedGame{
 	public static final int STARTSCREEN = 0;
 	public static void main(String[] args) throws SlickException {
-		AppGameContainer gameframe = new AppGameContainer(new SlickGame("Game"));
+		AppGameContainer gameFrame = new AppGameContainer(new SlickGame("Game"));
 		// startScreen.setTargetFrameRate(60);
-		gameframe.setDisplayMode(1000, 750, false);		
-		gameframe.start();
+		gameFrame.setDisplayMode(1000, 750, false);		
+		gameFrame.start();
 	}
 	
 	public SlickGame(String title) {
 		super(title);
+		
+	}
+	
+	public void initStatesList(GameContainer gc) throws SlickException {
+		// TODO Auto-generated method stub
+		addState(new StartScreen());
 
 	}
 	
-	public void initStatesList(GameContainer arg0) throws SlickException {
-		// TODO Auto-generated method stub
-		addState(new StartScreen());
-	}
 	
+
 }
