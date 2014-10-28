@@ -1,12 +1,13 @@
+
 import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
-// http://untamed.wild-refuge.net/rmxpresources.php?characters
-
 import startscreen.StartScreen;
-// test
-// this is so i can commit -_-
+import map.Map;
+
+//http://untamed.wild-refuge.net/rmxpresources.php?characters
+
 public class SlickGame extends StateBasedGame{
 	public static final int STARTSCREEN = 0;
 	public static void main(String[] args) throws SlickException {
@@ -23,10 +24,10 @@ public class SlickGame extends StateBasedGame{
 	
 	public void initStatesList(GameContainer gc) throws SlickException {
 		// TODO Auto-generated method stub
+		addState(new Map());
 		addState(new StartScreen());
+		enterState(1);
 
+	
 	}
-	
-	
-
 }

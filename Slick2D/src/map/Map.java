@@ -1,6 +1,5 @@
 package map;
  
-import org.newdawn.slick.Game;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
@@ -11,16 +10,16 @@ import org.newdawn.slick.tiled.TiledMap;
  
 public class Map extends BasicGameState {
  
-    Map  level;
-    String startinglevel;
+    Map  Map;
+   // String startinglevel;
     private TiledMap map;
  
-    public Map(String startingLevel){
-        this.startinglevel = startingLevel;
-    }
+   // public Map(String name){
+   //     this.startinglevel = name;
+   // }
  
     public void init(GameContainer container, StateBasedGame sbg) throws SlickException {
-    	level = new Map(startinglevel);
+    	// Map = new Map(startinglevel);
     	map = new TiledMap("testdata/levels/level_0.tmx", "testdata/data/img");
   
     }

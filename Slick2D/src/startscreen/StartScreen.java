@@ -1,24 +1,24 @@
 package startscreen;
 
-import org.newdawn.slick.Input;
-import org.newdawn.slick.KeyListener;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
+import org.newdawn.slick.Input;
+import org.newdawn.slick.KeyListener;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
-// test ?
+
 public class StartScreen extends BasicGameState implements KeyListener{
 	private Image frame; 
 	private Image pointer; 
 	private int menuX = 422;
 	private int menuY = 250;
 	private int menuSpacing = 75;
-	private String optionOne =  "   Start Game";
-	private String optionTwo =  "What shld this do?";
-	private String optionThree ="      Quit";
+	private String optionOne =  "Enter ->   Start Game";
+	private String optionTwo =  "Tab ->  What shld this do?";
+	private String optionThree ="Quit ->      Quit";
 	
 	@Override
 	public void render(GameContainer gc, StateBasedGame arg1, Graphics g)
@@ -56,6 +56,7 @@ public class StartScreen extends BasicGameState implements KeyListener{
 	@Override
 	public void keyPressed(int key, char c) {
 		if(key == Input.KEY_ENTER){
+			// StateBasedGame.enterState(1);
 			// goes to the map
 			System.out.println("enter");
 		}else if(key == Input.KEY_ESCAPE){
