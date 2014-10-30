@@ -1,3 +1,4 @@
+package slickgame;
 
 import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.GameContainer;
@@ -8,8 +9,11 @@ import map.Map;
 
 //http://untamed.wild-refuge.net/rmxpresources.php?characters
 
+
 public class SlickGame extends StateBasedGame{
 	public static final int STARTSCREEN = 0;
+	
+	
 	public static void main(String[] args) throws SlickException {
 		AppGameContainer gameFrame = new AppGameContainer(new SlickGame("Game"));
 		// startScreen.setTargetFrameRate(60);
@@ -24,10 +28,12 @@ public class SlickGame extends StateBasedGame{
 	
 	public void initStatesList(GameContainer gc) throws SlickException {
 		// TODO Auto-generated method stub
-		addState(new Map());
 		addState(new StartScreen());
-		enterState(1);
-
+		addState(new Map());
+		
+	}
 	
+	public void enterLevelOne(){
+		enterState(1);
 	}
 }

@@ -9,8 +9,11 @@ import org.newdawn.slick.KeyListener;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
+import slickgame.SlickGame;
 
 public class StartScreen extends BasicGameState implements KeyListener{
+	
+	public StateBasedGame test;
 	private Image frame; 
 	private Image pointer; 
 	private int menuX = 422;
@@ -56,7 +59,7 @@ public class StartScreen extends BasicGameState implements KeyListener{
 	@Override
 	public void keyPressed(int key, char c) {
 		if(key == Input.KEY_ENTER){
-			// StateBasedGame.enterState(1);
+			test.enterState(1);
 			// goes to the map
 			System.out.println("enter");
 		}else if(key == Input.KEY_ESCAPE){
