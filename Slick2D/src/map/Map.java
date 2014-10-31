@@ -1,5 +1,8 @@
 package map;
  
+import game.character.Player;
+import game.character.Character;
+
 import java.util.ArrayList;
 
 import org.newdawn.slick.GameContainer;
@@ -26,8 +29,8 @@ public class Map extends BasicGameState {
     	map = new TiledMap("testdata/levels/level_0.tmx", "testdata/data/img");
     	characters = new ArrayList<Character>();
     	
-    	//player = new Player(128,416); <- Issues 
-        //level.addCharacter(player);	<-
+    	Player player = new Player(128,416);
+        Map.addCharacter(player);	//<-
   
     }
     
@@ -43,11 +46,10 @@ public class Map extends BasicGameState {
     	map.render(0, 0, 0, 0, 32, 18);
     	
     	for(Character c : characters){
-            //c.render(); <- Doesn't work
+    		 c.render();
         }
     }
  
-    //this method is overriden from basicgamestate and will trigger once you press any key on your keyboard
     public void keyPressed(int key, char code){
         //if the key is escape, close our application
         if(key == Input.KEY_ESCAPE){
