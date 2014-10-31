@@ -1,5 +1,7 @@
 package startscreen;
 
+import java.util.Map;
+
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
@@ -9,8 +11,10 @@ import org.newdawn.slick.KeyListener;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
+import slickgame.SlickGame;
 
 public class StartScreen extends BasicGameState implements KeyListener{
+	
 	private Image frame; 
 	private Image pointer; 
 	private int menuX = 422;
@@ -20,6 +24,9 @@ public class StartScreen extends BasicGameState implements KeyListener{
 	private String optionTwo =  "Tab ->  What shld this do?";
 	private String optionThree ="Quit ->      Quit";
 	
+	public StartScreen(String Name){
+		System.out.println(Name);
+	}
 	@Override
 	public void render(GameContainer gc, StateBasedGame arg1, Graphics g)
 			throws SlickException {
@@ -56,7 +63,6 @@ public class StartScreen extends BasicGameState implements KeyListener{
 	@Override
 	public void keyPressed(int key, char c) {
 		if(key == Input.KEY_ENTER){
-			// StateBasedGame.enterState(1);
 			// goes to the map
 			System.out.println("enter");
 		}else if(key == Input.KEY_ESCAPE){
