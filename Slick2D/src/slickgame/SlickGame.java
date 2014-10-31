@@ -14,8 +14,9 @@ import map.Map;
 public class SlickGame extends StateBasedGame{
 	public static final int STARTSCREEN = 0;
 	// private static SlickGame Game;
-	private StartScreen Menu = new StartScreen("hope");
+	public StartScreen Menu = new StartScreen("hope");
 	public static SlickGame Game = new SlickGame("Game");
+	public Map level1 = new Map("Map");
 	
 	public static void main(String[] args) throws SlickException {
 		AppGameContainer gameFrame = new AppGameContainer(Game);
@@ -32,7 +33,7 @@ public class SlickGame extends StateBasedGame{
 	public void initStatesList(GameContainer gc) throws SlickException {
 		// TODO Auto-generated method stub
 		addState(Menu);
-		addState(new Map());	
+		addState(level1);	
 	}
 	
 	public void enterLevelOne(){

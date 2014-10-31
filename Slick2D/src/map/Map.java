@@ -14,23 +14,27 @@ import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.tiled.TiledMap;
  
 public class Map extends BasicGameState {
-	//dur hur github
-    Map  Map;
+
+   // Map  Map;
    // String startinglevel;
     private TiledMap map;
+    public String name;
   //a list of all characters present somewhere on this map
     private ArrayList<Character> characters;
    // public Map(String name){
    //     this.startinglevel = name;
    // }
- 
+    public Map(String tittle){
+    	name = tittle;
+    }
+    
     public void init(GameContainer container, StateBasedGame sbg) throws SlickException {
     	// Map = new Map(startinglevel);
     	map = new TiledMap("testdata/levels/level_0.tmx", "testdata/data/img");
     	characters = new ArrayList<Character>();
     	
     	Player player = new Player(128,416);
-        Map.addCharacter(player);	//<-
+      //  Map.addCharacter(player);	//<-
   
     }
     
