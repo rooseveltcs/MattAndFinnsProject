@@ -4,7 +4,7 @@ import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
  
 public abstract class Character {
- 
+	//i dont like github
     protected float x;
     protected float y;
     protected Image sprite;
