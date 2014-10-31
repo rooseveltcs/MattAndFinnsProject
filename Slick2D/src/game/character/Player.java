@@ -5,7 +5,6 @@ import org.newdawn.slick.SlickException;
  
 public class Player extends Character {
  
-		//did i mention i dont like github?
     public Player(float x, float y) throws SlickException{
         super(x,y);
         sprite = new Image("testdata/wizardPerson.png");
