@@ -1,5 +1,6 @@
 package startscreen;
 
+import java.awt.Menu;
 import java.util.Map;
 
 import org.newdawn.slick.Color;
@@ -11,6 +12,7 @@ import org.newdawn.slick.KeyListener;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
+
 import slickgame.SlickGame;
 
 public class StartScreen extends BasicGameState implements KeyListener{
@@ -63,6 +65,7 @@ public class StartScreen extends BasicGameState implements KeyListener{
 	@Override
 	public void keyPressed(int key, char c) {
 		if(key == Input.KEY_ENTER){
+			SlickGame.Game.enterState(1);
 			// goes to the map
 			System.out.println("enter");
 		}else if(key == Input.KEY_ESCAPE){
