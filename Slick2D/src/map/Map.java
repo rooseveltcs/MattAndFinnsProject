@@ -12,12 +12,14 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.tiled.TiledMap;
+
+import slickgame.SlickGame;
  
 public class Map extends BasicGameState {
 
     private TiledMap map;
     public String name;
-  //a list of all characters present somewhere on this map
+    //a list of all characters present somewhere on this map
     private static ArrayList<Character> characters;
 
     public Map(String tittle){
@@ -51,7 +53,7 @@ public class Map extends BasicGameState {
     public void keyPressed(int key, char code){
         //if the key is escape, close our application
         if(key == Input.KEY_ESCAPE){
-            System.exit(0);
+        	SlickGame.Game.enterState(0);
         }
     }
  

@@ -1,8 +1,5 @@
 package startscreen;
 
-import java.awt.Menu;
-import java.util.Map;
-
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
@@ -58,7 +55,6 @@ public class StartScreen extends BasicGameState implements KeyListener{
 
 	@Override
 	public int getID() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 	
