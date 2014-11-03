@@ -33,8 +33,5 @@ public class SlickGame extends StateBasedGame{
 		addState(Menu);
 		addState(level1);	
 	}
-	
-	public void enterLevelOne(){
-		enterState(1);
-	}
+
 }
