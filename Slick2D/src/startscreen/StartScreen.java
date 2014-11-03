@@ -29,6 +29,7 @@ public class StartScreen extends BasicGameState implements KeyListener{
 	@Override
 	public void render(GameContainer gc, StateBasedGame arg1, Graphics g)
 			throws SlickException {
+			System.out.println("hi");
 			frame.draw();
 			
 			g.setColor(Color.blue);
@@ -63,7 +64,6 @@ public class StartScreen extends BasicGameState implements KeyListener{
 		if(key == Input.KEY_ENTER){
 			SlickGame.Game.enterState(1);
 			// goes to the map
-			System.out.println("enter");
 		}else if(key == Input.KEY_ESCAPE){
 			System.exit(0);
 		}else if(key == Input.KEY_TAB){

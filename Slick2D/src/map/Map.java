@@ -20,7 +20,8 @@ public class Map extends BasicGameState {
     private TiledMap map;
     public String name;
     //a list of all characters present somewhere on this map
-    private static ArrayList<Character> characters;
+    private ArrayList<Character> characters;
+    private Player player; 
 
     public Map(String tittle){
     	name = tittle;
@@ -29,19 +30,18 @@ public class Map extends BasicGameState {
     public void init(GameContainer container, StateBasedGame sbg) throws SlickException {
     	map = new TiledMap("testdata/levels/level_0.tmx", "testdata/data/img");
     	characters = new ArrayList<Character>();
-    	
-    	Player player = new Player(128,416);
-        Map.addCharacter(player);
+    	player = new Player(128,416);
+        addCharacter(player);
       }
     
-    public static void addCharacter(Character c){
+    public void addCharacter(Character c){
         characters.add(c);
     }
  
     public void update(GameContainer container, StateBasedGame sbg, int delta) throws SlickException {
  
     }
- 
+    @Override
     public void render(GameContainer container, StateBasedGame sbg, Graphics g) throws SlickException {
     	map.render(0, 0, 0, 0, 32, 18);
     	
@@ -54,6 +54,8 @@ public class Map extends BasicGameState {
         //if the key is escape, close our application
         if(key == Input.KEY_ESCAPE){
         	SlickGame.Game.enterState(0);
+        }if(key == Input.KEY_LEFT){
+        	player.x += 100;
         }
     }
  
