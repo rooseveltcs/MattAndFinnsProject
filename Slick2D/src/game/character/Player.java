@@ -9,6 +9,13 @@ public class Player extends Character {
         super(x,y);
         sprite = new Image("testdata/wizardPerson.png");
     }
+    public void moveLeft(int delta){
+    	x = x - (.15f * delta);
+    }
+    
+    public void moveRight(int delta){
+    	x= x + (.15f * delta);
+    }
     
     public void render(){
     	sprite.draw(x,y);
