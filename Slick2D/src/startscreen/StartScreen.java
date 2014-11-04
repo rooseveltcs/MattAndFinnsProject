@@ -29,11 +29,9 @@ public class StartScreen extends BasicGameState implements KeyListener{
 	@Override
 	public void render(GameContainer gc, StateBasedGame arg1, Graphics g)
 			throws SlickException {
-			System.out.println("hi");
+			
 			frame.draw();
-			
 			g.setColor(Color.blue);
-			
 			g.drawString(optionOne, menuX, menuY);
 			// score? maybe options? setting?
 			g.drawString(optionTwo, menuX, menuY + menuSpacing);
@@ -59,6 +57,7 @@ public class StartScreen extends BasicGameState implements KeyListener{
 		return 0;
 	}
 	
+	// we should remove this and let mouse and keyboard handle it instead.
 	@Override
 	public void keyPressed(int key, char c) {
 		if(key == Input.KEY_ENTER){

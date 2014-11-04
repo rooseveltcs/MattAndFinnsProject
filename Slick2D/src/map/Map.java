@@ -47,7 +47,8 @@ public class Map extends BasicGameState {
     		 c.render();
         }
     }
- 
+    
+    // we should remove this and let mouse and keyboard handle it instead.
     public void keyPressed(int key, char code){
         //if the key is escape, close our application
         if(key == Input.KEY_ESCAPE){
