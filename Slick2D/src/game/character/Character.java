@@ -27,9 +27,7 @@ public abstract class Character {
     
     
     public void render(){
-       
     	   sprite.draw(x,y);
-       
      }
  
 }
