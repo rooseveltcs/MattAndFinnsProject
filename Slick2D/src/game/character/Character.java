@@ -2,7 +2,6 @@ package game.character;
  
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
-import org.newdawn.slick.SpriteSheet;
  
 public abstract class Character {
     // fix this later,not public
