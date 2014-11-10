@@ -5,7 +5,8 @@ import org.newdawn.slick.SlickException;
 
 public class Player extends Character {
 	protected Image sprite;
-	public int jumpHeight = 26;
+	public final int JUMPHEIGHT = 25;
+	private double jumpGrav = 0;
 	
 	public Player(float x, float y) throws SlickException{
 		super(x,y);
@@ -13,8 +14,15 @@ public class Player extends Character {
         	
     }	
 		
-	public void moveUp(int delta, int thisjumpHeight){
-	    y = y - (.25f * delta);
+	public void moveUp(int delta, int thisJumpHeight){
+	    //gravity amirite
+		jumpGrav += thisJumpHeight/7;
+		if(thisJumpHeight < JUMPHEIGHT){
+	    	y = (float) (y - (.25f * delta - jumpGrav + 6));
+	    }else{
+	    	jumpGrav = 0;
+	    	System.out.println("test " + jumpGrav);
+	    }
 	}	
 		
     public void moveRight(int delta){
