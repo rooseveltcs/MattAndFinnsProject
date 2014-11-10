@@ -13,7 +13,7 @@ import map.Map;
 public class SlickGame extends StateBasedGame{
 	public static final int STARTSCREEN = 0;
 	// private static SlickGame Game;
-	public StartScreen Menu = new StartScreen("hope");
+	public StartScreen Menu = new StartScreen("");
 	public static SlickGame Game = new SlickGame("Game");
 	public Map level1 = new Map("Map");
 	
