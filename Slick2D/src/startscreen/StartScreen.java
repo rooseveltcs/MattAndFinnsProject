@@ -67,7 +67,6 @@ public class StartScreen extends BasicGameState implements KeyListener{
 			System.exit(0);
 		}else if(key == Input.KEY_TAB){
 			// not sure what this will do yet
-			System.out.println("tab");
 		}else{
 			// nothing happens...
 		}
