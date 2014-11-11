@@ -6,7 +6,6 @@ import org.newdawn.slick.Input;
 import slickgame.SlickGame;
 
 public class MouseAndKeyBoardControls {
-	public int thisJumpHeight;
 	private Player controlledPlayer;
 	
 	public MouseAndKeyBoardControls(Player player){
@@ -19,8 +18,7 @@ public class MouseAndKeyBoardControls {
 		}if(i.isKeyDown(Input.KEY_RIGHT)){
 			controlledPlayer.moveLeft(delta);
 		}if(i.isKeyDown(Input.KEY_UP)){
-			controlledPlayer.moveUp(delta, thisJumpHeight);
-			thisJumpHeight++;
+			controlledPlayer.jump(delta);
 		}else if(i.isKeyDown(Input.KEY_ESCAPE)){
 			SlickGame.Game.enterState(0);
 		}
