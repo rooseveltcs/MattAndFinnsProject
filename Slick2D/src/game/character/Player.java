@@ -5,9 +5,10 @@ import org.newdawn.slick.SlickException;
 
 public class Player extends Character {
 	protected Image sprite;
-	public final int JUMPHEIGHT = 25;
-	private double jumpGrav = 0;
+	// jumping stuff
+	public int JUMPHEIGHT = 25;
 	private int thisJumpHeight = 0;
+	private int jumpStart;
 	
 	public Player(float x, float y) throws SlickException{
 		super(x,y);
@@ -16,14 +17,15 @@ public class Player extends Character {
     }	
 		
 	public void jump(int delta){
-		//gravity amirite
+		jumpStart = (int) y;
 		thisJumpHeight++;
-		jumpGrav += thisJumpHeight/7;
-		if(thisJumpHeight < JUMPHEIGHT){
-	    	y = (float) (y - (.25f * delta - jumpGrav + 6));
-	    }else{
-	    	jumpGrav = 0;
-	    	// System.out.println("test " + jumpGrav);
+		// System.out.println(y + "first is y,");
+		// this needs to be more smooth, collision will handle fall
+		if(y <= jumpStart + JUMPHEIGHT){
+	    	 y = (float) y - (.35f - (thisJumpHeight / 30)) * delta;
+	    	 System.out.println("delta " + delta + " thisjumpheight " + thisJumpHeight);
+		}else{
+	    
 	    }
 	}	
 		
