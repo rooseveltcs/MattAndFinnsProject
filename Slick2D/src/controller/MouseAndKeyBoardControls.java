@@ -13,12 +13,16 @@ public class MouseAndKeyBoardControls {
 	}
 
 	public void handleInput(Input i, int delta){
+		while(controlledPlayer.isJumping()){
+			controlledPlayer.jump(delta);
+		}
+		
 		if(i.isKeyDown(Input.KEY_LEFT)){
 			controlledPlayer.moveRight(delta);
 		}if(i.isKeyDown(Input.KEY_RIGHT)){
 			controlledPlayer.moveLeft(delta);
-		}if(i.isKeyDown(Input.KEY_UP)){
-			controlledPlayer.jump(delta);
+		}if(i.isKeyPressed(Input.KEY_UP)){
+			controlledPlayer.setJumping(true);
 		}else if(i.isKeyDown(Input.KEY_ESCAPE)){
 			SlickGame.Game.enterState(0);
 		}

@@ -34,7 +34,7 @@ public class Map extends BasicGameState {
     	player = new Player(128,405);
         addCharacter(player);
         playerControls = new MouseAndKeyBoardControls(player);
-      }
+    }
     
     public void addCharacter(Character c){
         characters.add(c);
@@ -52,16 +52,6 @@ public class Map extends BasicGameState {
         }
     }
     
-    // we should remove this and let mouse and keyboard handle it instead.
-    // public void keyPressed(int key, char code){
-        //if the key is escape, close our application
-       // if(key == Input.KEY_ESCAPE){
-        //	SlickGame.Game.enterState(0);
-        //}if(key == Input.KEY_LEFT){
-        	//player.x += 100;
-        //}
-    //}
- 
     public int getID() {
         //this is the id for changing states
         return 1;
