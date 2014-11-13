@@ -5,10 +5,7 @@ import org.newdawn.slick.SlickException;
 
 public class Player extends Character {
 	protected Image sprite;
-	// jumping stuff
-	public int JUMPHEIGHT = 25;
-	private int thisJumpHeight = 0;
-	private int jumpStart;
+	private double thisJumpHeight = 0;
 	
 	public Player(float x, float y) throws SlickException{
 		super(x,y);
@@ -17,16 +14,17 @@ public class Player extends Character {
     }	
 		
 	public void jump(int delta){
-		jumpStart = (int) y;
+		double jumpSpeed = 2;
 		thisJumpHeight++;
-		// System.out.println(y + "first is y,");
-		// this needs to be more smooth, collision will handle fall
-		if(y <= jumpStart + JUMPHEIGHT){
-	    	 y = (float) y - (.35f - (thisJumpHeight / 30)) * delta;
-	    	 System.out.println("delta " + delta + " thisjumpheight " + thisJumpHeight);
+		// sixty is the magic number, it just works.
+		if(y <= 406.0){
+			y = (float) y -  (float)(jumpSpeed * (.35 - thisJumpHeight / 60)) * delta;
 		}else{
-	    
-	    }
+			System.out.println(y);
+			thisJumpHeight = 0;
+			y -= 10.667;
+		}
+	    // System.out.println(y + "delta " + delta + " thisjumpheight " + thisJumpHeight);
 	}	
 		
     public void moveRight(int delta){
