@@ -49,7 +49,7 @@ public class StartScreen extends BasicGameState implements KeyListener{
 	@Override
 	public void update(GameContainer gc, StateBasedGame sbg, int arg2)
 			throws SlickException {
-			
+		//  playerControls.handleInput(container.getInput(), delta);
 	}
 
 	@Override

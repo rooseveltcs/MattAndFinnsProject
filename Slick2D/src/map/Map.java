@@ -46,7 +46,6 @@ public class Map extends BasicGameState {
     @Override
     public void render(GameContainer container, StateBasedGame sbg, Graphics g) throws SlickException {
     	map.render(0, 0, 0, 0, 32, 18);
-    	
     	for(Character c : characters){
     		 c.render();
         }
