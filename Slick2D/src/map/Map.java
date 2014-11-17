@@ -29,7 +29,7 @@ public class Map extends BasicGameState {
     }
     
     public void init(GameContainer container, StateBasedGame sbg) throws SlickException {
-    	map = new TiledMap("testdata/levels/hope.tmx");
+    	map = new TiledMap("testdata/levels/level_0.tmx", "testdata/data/img");
     	characters = new ArrayList<Character>();
     	player = new Player(128,405);
         addCharacter(player);
@@ -41,10 +41,15 @@ public class Map extends BasicGameState {
     }
  
     public void update(GameContainer container, StateBasedGame sbg, int delta) throws SlickException {
+    	if(player.isJumping()){
+    		player.jump(delta);
+    	}
     	playerControls.handleInput(container.getInput(), delta);
     }
     @Override
     public void render(GameContainer container, StateBasedGame sbg, Graphics g) throws SlickException {
+    	
+    	
     	map.render(0, 0, 0, 0, 32, 18);
     	for(Character c : characters){
     		 c.render();
