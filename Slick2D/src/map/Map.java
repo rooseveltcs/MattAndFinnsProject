@@ -2,9 +2,7 @@ package map;
  
 import game.character.Character;
 import game.character.Player;
-
 import java.util.ArrayList;
-
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
@@ -14,7 +12,6 @@ import org.newdawn.slick.tiled.TiledMap;
 
 import controller.MouseAndKeyBoardControls;
 
- 
 public class Map extends BasicGameState {
 
     private TiledMap map;

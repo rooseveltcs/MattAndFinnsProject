@@ -18,8 +18,12 @@ public class Player extends Character {
 		double jumpSpeed = 2;
 		thisJumpHeight++;
 		// sixty is the magic number, it just works.
+		System.out.println(y + "   " + delta);
+		// long curTime
+		// System.out.println(lastTimes - System.currentTimeMillis());
+		// lastTimes = curTime;
 		if(y <= 406.0){
-			y = (float) y -  (float)(jumpSpeed * (.35 - thisJumpHeight / 60)) * delta;
+			y = (float) y -  (float)(jumpSpeed * (.35 - thisJumpHeight / 60) * delta);
 		}else{
 			thisJumpHeight = 0;
 			setJumping(false);
