@@ -29,7 +29,7 @@ public class Map extends BasicGameState {
     }
     
     public void init(GameContainer container, StateBasedGame sbg) throws SlickException {
-    	map = new TiledMap("testdata/levels/level_0.tmx", "testdata/data/img");
+    	map = new TiledMap("testdata/levels/hope.tmx");
     	characters = new ArrayList<Character>();
     	player = new Player(128,405);
         addCharacter(player);
