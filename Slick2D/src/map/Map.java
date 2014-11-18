@@ -2,7 +2,9 @@ package map;
  
 import game.character.Character;
 import game.character.Player;
+
 import java.util.ArrayList;
+
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
@@ -10,10 +12,11 @@ import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.tiled.TiledMap;
 
+import tiles.Tile;
 import controller.MouseAndKeyBoardControls;
 
 public class Map extends BasicGameState {
-
+	private Tile[][] tileArray;
     private TiledMap map;
     public String name;
     //a list of all characters present somewhere on this map
@@ -21,8 +24,8 @@ public class Map extends BasicGameState {
     private Player player; 
     public  MouseAndKeyBoardControls playerControls;
     
-    public Map(String tittle){
-    	name = tittle;
+    public Map(String title){
+    	name = title;
     }
     
     public void init(GameContainer container, StateBasedGame sbg) throws SlickException {
@@ -31,6 +34,17 @@ public class Map extends BasicGameState {
     	player = new Player(128,405);
         addCharacter(player);
         playerControls = new MouseAndKeyBoardControls(player);
+    }
+
+    public void loadTiledMap(){
+    	tileArray = new Tile[map.getWidth()][map.getHeight()];
+    	// gets index layer of the collision layer made in Tiled.
+    	int layerIndex = map.getLayerIndex("CollisionLayer");
+    	for(int i = 0; i < map.getWidth(); i++){
+    		for(int j = 0; j < map.getHeight(); j++){
+    		// waht deos switch do	
+    		}
+    	}
     }
     
     public void addCharacter(Character c){
@@ -43,10 +57,9 @@ public class Map extends BasicGameState {
     	}
     	playerControls.handleInput(container.getInput(), delta);
     }
+    
     @Override
     public void render(GameContainer container, StateBasedGame sbg, Graphics g) throws SlickException {
-    	
-    	
     	map.render(0, 0, 0, 0, 32, 18);
     	for(Character c : characters){
     		 c.render();

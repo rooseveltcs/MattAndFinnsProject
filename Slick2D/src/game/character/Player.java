@@ -16,7 +16,9 @@ public class Player extends Character {
 	public void jump(int delta){
 		double jumpSpeed = 2;
 		thisJumpHeight++;		
-		if(y <= 406.0){
+		// fix this wen actual collision works
+		if(y <= 420.0){
+			//406.0
 			y = (float) y -  (float)(jumpSpeed * (.35 - thisJumpHeight / 60) * delta);
 		}else{
 			thisJumpHeight = 0;
