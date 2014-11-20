@@ -2,20 +2,20 @@ package map;
  
 import game.character.Character;
 import game.character.Player;
-
 import java.util.ArrayList;
-
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.tiled.TiledMap;
-
+import tiles.AirTile;
+import tiles.SolidTile;
 import tiles.Tile;
 import controller.MouseAndKeyBoardControls;
 
 public class Map extends BasicGameState {
+	
 	private Tile[][] tileArray;
     private TiledMap map;
     public String name;
@@ -33,16 +33,29 @@ public class Map extends BasicGameState {
     	characters = new ArrayList<Character>();
     	player = new Player(128,405);
         addCharacter(player);
-        playerControls = new MouseAndKeyBoardControls(player);
+        playerControls = new MouseAndKeyBoardControls(player); 
     }
-
+    
+    public Tile[][] getTiles(){
+    	return tileArray;
+    }
+    
     public void loadTiledMap(){
-    	tileArray = new Tile[map.getWidth()][map.getHeight()];
+    	tileArray = new Tile[map.getWidth()][map.getHeight()];  
     	// gets index layer of the collision layer made in Tiled.
     	int layerIndex = map.getLayerIndex("CollisionLayer");
-    	for(int i = 0; i < map.getWidth(); i++){
-    		for(int j = 0; j < map.getHeight(); j++){
-    		// waht deos switch do	
+    	for(int x = 0; x < map.getWidth(); x++){
+    		for(int y = 0; y < map.getHeight(); y++){
+    			int tileID = map.getTileId(x, y, layerIndex);
+    			Tile tile= null;
+    			switch(map.getTileProperty(tileID, "tileType", "solid")){
+    				case "air":
+    					tile = new AirTile(x, y);
+    					break;
+    				default:
+    					tile = new SolidTile(x, y);
+    			}
+    			tileArray[x][y] = tile;
     		}
     	}
     }

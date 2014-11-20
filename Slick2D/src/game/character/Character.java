@@ -22,12 +22,12 @@ public abstract class Character {
     }
  
     public float getY(){
-        return y;
+    	return y;
     }
     
     
     public void render(){
-    	   sprite.draw(x,y);
+    	sprite.draw(x,y);
     }
  
 }
