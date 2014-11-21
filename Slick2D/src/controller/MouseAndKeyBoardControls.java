@@ -1,6 +1,8 @@
 package controller;
 
 import game.character.Player;
+import map.Map;
+
 import org.newdawn.slick.Input;
 
 import slickgame.SlickGame;
@@ -10,6 +12,7 @@ public class MouseAndKeyBoardControls {
 	
 	public MouseAndKeyBoardControls(Player player){
 		controlledPlayer = player;
+		// map.Map.this.getTiles();
 	}
 
 	public void handleInput(Input i, int delta){

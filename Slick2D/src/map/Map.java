@@ -25,7 +25,7 @@ public class Map extends BasicGameState {
     public  MouseAndKeyBoardControls playerControls;
     
     public Map(String title){
-    	name = title;
+
     }
     
     public void init(GameContainer container, StateBasedGame sbg) throws SlickException {
