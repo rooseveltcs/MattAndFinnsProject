@@ -9,9 +9,7 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.tiled.TiledMap;
-import tiles.AirTile;
-import tiles.SolidTile;
-import tiles.Tile;
+import tiles.*;
 import controller.MouseAndKeyBoardControls;
 
 public class Map extends BasicGameState {
@@ -25,7 +23,8 @@ public class Map extends BasicGameState {
     public  MouseAndKeyBoardControls playerControls;
     
     public Map(String title){
-
+    	// should use this to reset the window size to fit the map
+    	// SlickGame.gameFrame.setDisplayMode(1000, 750, false);		
     }
     
     public void init(GameContainer container, StateBasedGame sbg) throws SlickException {
