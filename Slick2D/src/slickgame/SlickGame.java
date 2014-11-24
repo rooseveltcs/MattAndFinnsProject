@@ -6,7 +6,7 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
 import startscreen.StartScreen;
 import map.Map;
-
+//http://frums.nl/index/showpost/6/
 //http://untamed.wild-refuge.net/rmxpresources.php?characters
 
 
