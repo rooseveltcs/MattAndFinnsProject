@@ -3,25 +3,30 @@ package game.character;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import tiles.Tile;
-import map.*;
+import map.Map;
 
 public class Player extends Character {
 	protected Image sprite;
 	private double thisJumpHeight = 0;
 	private boolean jumping;
 	protected Tile[][] tileArray;
+	protected boolean hitLeft;
+	protected boolean hitRight;
+	protected boolean hitAbove;
+	protected boolean hitBelow;
+	
 	
 	public Player(float x, float y) throws SlickException{
 		super(x,y);
 		sprite = new Image("testdata/wizardlady.png");
-    }	
+		tileArray = Map.getTiles();
+	}	
 	
 	public void jump(int delta){
 		double jumpSpeed = 2;
 		thisJumpHeight++;		
 		// fix this wen actual collision works
 		if(y <= 420.0){
-			//406.0
 			y = (float) y -  (float)(jumpSpeed * (.35 - thisJumpHeight / 60) * delta);
 		}else{
 			thisJumpHeight = 0;
@@ -29,6 +34,10 @@ public class Player extends Character {
 			// this is the exact offset between where the sprite lands, and the boundary on the if statement
 			y -= 10.667;
 		}
+	}
+	
+	public void colliding(){
+		
 	}
 	
 	public void setJumping(boolean Jumped){
@@ -46,10 +55,6 @@ public class Player extends Character {
     public void moveLeft(int delta){
     	x = x + (.25f * delta);
     }   
-    
-    public void update(){
-    // tileArray = map.Map.map.getTiles();
-    }
     
     public void render(){
     	sprite.draw(x,y);

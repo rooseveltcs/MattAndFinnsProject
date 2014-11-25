@@ -14,7 +14,7 @@ import controller.MouseAndKeyBoardControls;
 
 public class Map extends BasicGameState {
 	
-	private Tile[][] tileArray;
+	private static Tile[][] tileArray;
     private TiledMap map;
     public String name;
     //a list of all characters present somewhere on this map
@@ -34,7 +34,7 @@ public class Map extends BasicGameState {
         playerControls = new MouseAndKeyBoardControls(player); 
     }
     
-    public Tile[][] getTiles(){
+    public static Tile[][] getTiles(){
     	return tileArray;
     }
     
