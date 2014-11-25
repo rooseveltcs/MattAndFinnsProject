@@ -1,7 +1,6 @@
 package Physics;
 
 import java.util.ArrayList;
-
 import tiles.Tile;
 
 public class AABoundingRectangle extends BoundingShape{
@@ -28,7 +27,7 @@ public class AABoundingRectangle extends BoundingShape{
 	}
 
 	public boolean checkCollision(AABoundingRectangle rekt) {
-		return !(rekt.x > this.x + width || rekt.x + rekt.width < this.x || rekt.y );
+		return !(rekt.x > this.x + width || rekt.x + rekt.width < this.x || rekt.y + rekt.height < this.y );
 	}
 
 	public ArrayList<Tile> getTilesOccupying(Tile[][] tiles) {

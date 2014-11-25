@@ -2,17 +2,20 @@ package game.character;
 
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
+import tiles.Tile;
+import map.*;
 
 public class Player extends Character {
 	protected Image sprite;
 	private double thisJumpHeight = 0;
 	private boolean jumping;
+	protected Tile[][] tileArray;
 	
 	public Player(float x, float y) throws SlickException{
 		super(x,y);
 		sprite = new Image("testdata/wizardlady.png");
     }	
-
+	
 	public void jump(int delta){
 		double jumpSpeed = 2;
 		thisJumpHeight++;		
@@ -43,7 +46,11 @@ public class Player extends Character {
     public void moveLeft(int delta){
     	x = x + (.25f * delta);
     }   
-    	
+    
+    public void update(){
+    // tileArray = map.Map.map.getTiles();
+    }
+    
     public void render(){
     	sprite.draw(x,y);
     }

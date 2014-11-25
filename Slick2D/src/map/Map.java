@@ -24,7 +24,6 @@ public class Map extends BasicGameState {
     
     public Map(String title){
     	// should use this to reset the window size to fit the map
-    	// SlickGame.gameFrame.setDisplayMode(1000, 750, false);		
     }
     
     public void init(GameContainer container, StateBasedGame sbg) throws SlickException {
