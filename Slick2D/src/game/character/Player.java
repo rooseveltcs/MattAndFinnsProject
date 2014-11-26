@@ -14,12 +14,17 @@ public class Player extends Character {
 	protected boolean hitRight;
 	protected boolean hitAbove;
 	protected boolean hitBelow;
+	protected int row;
+	protected int col;
 	
 	
 	public Player(float x, float y) throws SlickException{
 		super(x,y);
 		sprite = new Image("testdata/wizardlady.png");
 		tileArray = Map.getTiles();
+		row = tileArray.length;
+		col = tileArray[0].length;
+		
 	}	
 	
 	public void jump(int delta){
@@ -38,16 +43,14 @@ public class Player extends Character {
 	
 	public void colliding(){
 		
-		int row = tileArray.length;
-		int col = tileArray[0].length;
-		
-		for(int i = 0; i <= row; i++){
-			for(int j = 0; j <= col; j++){
-				if((int)(x/32) == tileArray[i][j].getX()){
-					if((int)(y/32) == tileArray[i][j].getY()){
+	for(int i = 0; i <= row; i++){
+		for(int j = 0; j <= col; j++){
+			if((int)(x) + width <= tileArray[i][j].getX() + 32 && (int)(x) + width >= tileArray[i][j].getX() || (int)(x) <= tileArray[i][j].getX() + 32 && (int)(x) >= tileArray[i][j].getX()){
+				if((int)(y/32) == tileArray[i][j].getY()){
 						
 					}
-				}
+				 	System.out.println("did werk!!! :D");
+				 }
 			}
 		}
 	}
