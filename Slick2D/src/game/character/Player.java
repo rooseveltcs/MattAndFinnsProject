@@ -37,6 +37,7 @@ public class Player extends Character {
 	}
 	
 	public void colliding(){
+		
 		int row = tileArray.length;
 		int col = tileArray[0].length;
 		

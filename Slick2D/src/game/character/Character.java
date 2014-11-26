@@ -8,14 +8,16 @@ public abstract class Character {
 	protected float x;
     protected float y;
     protected Image sprite;
-    protected int height = sprite.getHeight();
-    protected int width = sprite.getWidth();
+    protected int height;
+    protected int width;
     
     public Character(float x, float y) throws SlickException{
         this.x = x;
         this.y = y;
         //placeholder image
         sprite = new Image("testdata/grass.png");
+        height = sprite.getHeight();
+        width = sprite.getWidth();
     }
     
     public float getX(){
