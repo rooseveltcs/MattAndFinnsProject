@@ -25,7 +25,7 @@ public class Player extends Character {
 	public void jump(int delta){
 		double jumpSpeed = 2;
 		thisJumpHeight++;		
-		// fix this wen actual collision works
+		// fix this  when actual collision works
 		if(y <= 420.0){
 			y = (float) y -  (float)(jumpSpeed * (.35 - thisJumpHeight / 60) * delta);
 		}else{
@@ -37,7 +37,18 @@ public class Player extends Character {
 	}
 	
 	public void colliding(){
+		int row = tileArray.length;
+		int col = tileArray[0].length;
 		
+		for(int i = 0; i <= row; i++){
+			for(int j = 0; j <= col; j++){
+				if((int)(x/32) == tileArray[i][j].getX()){
+					if((int)(y/32) == tileArray[i][j].getY()){
+						
+					}
+				}
+			}
+		}
 	}
 	
 	public void setJumping(boolean Jumped){

@@ -4,11 +4,12 @@ import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
  
 public abstract class Character {
-    // fix this later,not public
-	// make getter setter
-	public float x;
-    public float y;
+    
+	protected float x;
+    protected float y;
     protected Image sprite;
+    protected int height = sprite.getHeight();
+    protected int width = sprite.getWidth();
     
     public Character(float x, float y) throws SlickException{
         this.x = x;
@@ -20,7 +21,7 @@ public abstract class Character {
     public float getX(){
         return x;
     }
- 
+    
     public float getY(){
     	return y;
     }
@@ -28,5 +29,4 @@ public abstract class Character {
     public void render(){
     	sprite.draw(x,y);
     }
- 
 }
