@@ -2,17 +2,13 @@ package map;
  
 import game.character.Character;
 import game.character.Player;
-
 import java.util.ArrayList;
-
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.tiled.TiledMap;
-
-import slickgame.SlickGame;
 import tiles.AirTile;
 import tiles.SolidTile;
 import tiles.Tile;
@@ -30,6 +26,7 @@ public class Map extends BasicGameState {
     
     public Map(String title){
     	// should use this to reset the window size to fit the map
+    	
     }
     
     public void init(GameContainer container, StateBasedGame sbg) throws SlickException {
