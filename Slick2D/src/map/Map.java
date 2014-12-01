@@ -2,14 +2,20 @@ package map;
  
 import game.character.Character;
 import game.character.Player;
+
 import java.util.ArrayList;
+
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.tiled.TiledMap;
-import tiles.*;
+
+import slickgame.SlickGame;
+import tiles.AirTile;
+import tiles.SolidTile;
+import tiles.Tile;
 import controller.MouseAndKeyBoardControls;
 
 public class Map extends BasicGameState {
@@ -34,7 +40,7 @@ public class Map extends BasicGameState {
         playerControls = new MouseAndKeyBoardControls(player); 
     }
     
-    public static Tile[][] getTiles(){
+    public Tile[][] getTiles(){
     	return tileArray;
     }
     
@@ -71,10 +77,45 @@ public class Map extends BasicGameState {
     }
     
     public void render(GameContainer container, StateBasedGame sbg, Graphics g) throws SlickException {
-    	map.render(0, 0, 0, 0, 32, 18);
+    	int x_offset = getXOffset();
+        int y_offset = getYOffset();
+    	map.render(-(x_offset%32), -(y_offset%32), x_offset/32, y_offset/32, 32, 18);
     	for(Character c : characters){
-    		 c.render();
+    		 c.render(x_offset,y_offset);
         }
+    }
+    
+    public int getXOffset(){
+    	int x_offset = 0;
+    	int halfOfScreen = 500;
+    	int maxOffsetPostition = (int) (map.getWidth()*32)-halfOfScreen;
+    	
+    	if(player.getX() < halfOfScreen){
+    		x_offset = 0;
+    	}else if(player.getX() > maxOffsetPostition){
+    		x_offset = maxOffsetPostition - halfOfScreen;
+    	}else{
+    		x_offset = (int) (player.getX()-halfOfScreen);
+    	}
+    	return x_offset;
+    }
+    
+    public int getYOffset(){
+        int y_offset = 0;
+ 
+        int halfHigh = (int) (362.5);
+ 
+        int maxUp = (int) (map.getHeight()*32)-halfHigh;
+ 
+        if(player.getY() < halfHigh){
+            y_offset = 0;
+        }else if(player.getY() > maxUp){
+            y_offset = maxUp-halfHigh;
+        }else{
+            y_offset = (int) (player.getY()-halfHigh);
+        }
+ 
+        return y_offset;
     }
     
     public int getID() {

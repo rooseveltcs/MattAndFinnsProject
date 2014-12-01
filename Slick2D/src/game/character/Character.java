@@ -28,7 +28,7 @@ public abstract class Character {
     	return y;
     }
     
-    public void render(){
-    	sprite.draw(x,y);
+    public void render(float offset_x, float offset_y){
+    	sprite.draw(x - offset_x, y - offset_y);
     }
 }
