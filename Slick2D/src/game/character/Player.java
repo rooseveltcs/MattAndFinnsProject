@@ -3,7 +3,6 @@ package game.character;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import tiles.Tile;
-import map.*;
 
 public class Player extends Character {
 	protected Image sprite;
@@ -68,9 +67,5 @@ public class Player extends Character {
     public void moveLeft(int delta){
     	x = x + (.25f * delta);
     }   
-    
-    public void render(){
-    	sprite.draw(x,y);
-    }
 }
 

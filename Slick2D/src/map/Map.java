@@ -26,7 +26,8 @@ public class Map extends BasicGameState {
     
     public Map(String title){
     	// should use this to reset the window size to fit the map
-    	
+    	System.out.println();
+    	// THE TILE ARRAY DOESNT WORK, NEED TO FIX FIRST
     }
     
     public void init(GameContainer container, StateBasedGame sbg) throws SlickException {
@@ -35,6 +36,7 @@ public class Map extends BasicGameState {
     	player = new Player(128,405);
         addCharacter(player);
         playerControls = new MouseAndKeyBoardControls(player); 
+    	loadTiledMap();
     }
     
     public Tile[][] getTiles(){
