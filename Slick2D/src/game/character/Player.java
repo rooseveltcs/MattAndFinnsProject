@@ -2,6 +2,8 @@ package game.character;
 
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
+
+import slickgame.SlickGame;
 import tiles.Tile;
 
 public class Player extends Character {
@@ -20,7 +22,8 @@ public class Player extends Character {
 	public Player(float x, float y) throws SlickException{
 		super(x,y);
 		sprite = new Image("testdata/wizardlady.png");
-		// tileArray = map.Map.map.getTiles();
+		tileArray = SlickGame.Game.level1.getTiles();
+		System.out.println(tileArray.toString());
 		// row = tileArray.length;
 		// col = tileArray[0].length;
 	}	

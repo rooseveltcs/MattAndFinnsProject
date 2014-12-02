@@ -10,12 +10,12 @@ import map.Map;
 //http://untamed.wild-refuge.net/rmxpresources.php?characters
 
 
-public class SlickGame extends StateBasedGame{
+public class SlickGame extends StateBasedGame {
 	public static final int STARTSCREEN = 0;
 	// private static SlickGame Game;
 	public StartScreen Menu = new StartScreen("");
 	public static SlickGame Game = new SlickGame("Game");
-	public Map level1 = new Map("Map");
+	public Map level1 = new Map("hope");
 	
 	public static void main(String[] args) throws SlickException {
 		AppGameContainer gameFrame = new AppGameContainer(Game);

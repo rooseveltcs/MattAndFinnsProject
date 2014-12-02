@@ -16,27 +16,29 @@ import controller.MouseAndKeyBoardControls;
 
 public class Map extends BasicGameState {
 	
-	private static Tile[][] tileArray;
-    private TiledMap map;
-    public String name;
+	public Tile[][] tileArray;	
     //a list of all characters present somewhere on this map
     private ArrayList<Character> characters;
     private Player player; 
+    private String levelName;
+    // this is here to reveive input.
     public  MouseAndKeyBoardControls playerControls;
+    protected TiledMap map;
     
-    public Map(String title){
+    
+    public Map(String level){
+    	levelName = level;
+    	// level should be "hope"
     	// should use this to reset the window size to fit the map
-    	System.out.println();
-    	// THE TILE ARRAY DOESNT WORK, NEED TO FIX FIRST
     }
     
     public void init(GameContainer container, StateBasedGame sbg) throws SlickException {
-    	map = new TiledMap("testdata/levels/hope.tmx");
+    	map = new TiledMap("testdata/levels/" + levelName + ".tmx");
     	characters = new ArrayList<Character>();
     	player = new Player(128,405);
         addCharacter(player);
         playerControls = new MouseAndKeyBoardControls(player); 
-    	loadTiledMap();
+        loadTiledMap();
     }
     
     public Tile[][] getTiles(){
@@ -102,7 +104,7 @@ public class Map extends BasicGameState {
     public int getYOffset(){
         int y_offset = 0;
  
-        int halfHigh = (int) (362.5);
+        int halfHigh = (int) (375);
  
         int maxUp = (int) (map.getHeight()*32)-halfHigh;
  

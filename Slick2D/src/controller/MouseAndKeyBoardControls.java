@@ -1,10 +1,7 @@
 package controller;
 
 import game.character.Player;
-import map.Map;
-
 import org.newdawn.slick.Input;
-
 import slickgame.SlickGame;
 
 public class MouseAndKeyBoardControls {
