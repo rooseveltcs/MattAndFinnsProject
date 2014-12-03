@@ -3,14 +3,19 @@
  <tileset firstgid="1" name="simple tileset" tilewidth="32" tileheight="32">
   <image source="../data/img/tilesets/simple_tileset.png" width="192" height="544"/>
  </tileset>
- <layer name="CollisionLayer" width="100" height="16">
+ <layer name="background" width="100" height="16">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+2ROwqAQAwFg41YqIV6Go8gbOH9D2MshLDg6oqSp76BgVT7yYiIFBTCjUqIN6WZ2cMf9sCCPbBgDyzYAwv2wII9sEDuMRv/gnePP+48he0RHrqDOz9P2Jlz+cLOvf4wmTmnx9t3XquN2no/JOJqD0RG4xGd2qtD4oyc8+4i7hGimfq6sgD1GEZDABkAAA==
+   H4sIAAAAAAAAC+3SsQkAIAwF0ZTuo+6/mjY2qYWceA9+LzkjmPre2JvVD3ncuWOed72D/k/p75MkgpamWvZgsQeLPVjswWIPFnuw2IMjt7BHLXv8YQHsI2V9ABkAAA==
   </data>
  </layer>
- <layer name="Background" width="100" height="16">
+ <layer name="CollisionLayer" width="100" height="16">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+3RMQqAMBQE0S8WkqPZpMn972JSGLzBDjgPtl+Yo0Rxzl3pE9pa2YPEHiz2YLEHiz1Y7MFC7nGnDwSQe/yRPVhWj54+oa2XPUjswWKPnPHZyx4sq8UDXpH8EgAZAAA=
+   H4sIAAAAAAAAC+2WMQqAMAxFIw7ioA7qaRwdhQ7e/zDWQQhFK7VqUv0PPsQMpf6HIBFRTkCajM2l2C3ARsFm+JAHPnQBH7qAjzhG53ne2YUAH3HsdQ8fcsCHLv7kY2bRytq9e7+UfaTQuY8nvw8TcY6P1Dv3cbcPczCH8oXOr7zDHf+7E5tDfKTUeWVT2zQnuyd4y4dGBhZOa9PZ9Cc794yj80KI9WGcGZHNygJGjjz4ABkAAA==
+  </data>
+ </layer>
+ <layer name="fluff" width="100" height="16">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3RMQqAMBAF0YiFeB71EDZpvP9d3BSGtBayA86D3y4LMxVRzLEl+wl1a7HHW1tsjx0f3LYHiz1Y7MFiDxZ7sJB7nNkPJCD3+CN7sLQeNfsJdbXYg8QeLPbIcw172IOltbgB3+HUSQAZAAA=
   </data>
  </layer>
 </map>
