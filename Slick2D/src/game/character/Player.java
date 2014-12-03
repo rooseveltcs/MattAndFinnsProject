@@ -7,7 +7,6 @@ import slickgame.SlickGame;
 import tiles.Tile;
 
 public class Player extends Character {
-	protected Image sprite;
 	private double thisJumpHeight = 0;
 	private boolean jumping;
 	protected Tile[][] tileArray;
@@ -18,21 +17,21 @@ public class Player extends Character {
 	protected int row;
 	protected int col;
 	
-	
 	public Player(float x, float y) throws SlickException{
 		super(x,y);
 		sprite = new Image("testdata/wizardlady.png");
+		height = sprite.getHeight();
+        width = sprite.getWidth();
 		tileArray = SlickGame.Game.level1.getTiles();
-		System.out.println(tileArray.toString());
-		// row = tileArray.length;
-		// col = tileArray[0].length;
+		row = tileArray.length;
+		col = tileArray[0].length;
 	}	
 	
 	public void jump(int delta){
 		double jumpSpeed = 2;
 		thisJumpHeight++;		
 		// fix this  when actual collision works
-		if(y <= 420.0){
+		if(y <= 350){
 			y = (float) y -  (float)(jumpSpeed * (.35 - thisJumpHeight / 60) * delta);
 		}else{
 			thisJumpHeight = 0;
@@ -43,16 +42,16 @@ public class Player extends Character {
 	}
 	
 	public void colliding(){
-	//	for(int i = 0; i <= row; i++){
-	//		for(int j = 0; j <= col; j++){
-	//			if((int)(x) + width <= tileArray[i][j].getX() + 32 && (int)(x) + width >= tileArray[i][j].getX() || (int)(x) <= tileArray[i][j].getX() + 32 && (int)(x) >= tileArray[i][j].getX()){
-	//			 	System.out.println("did werk!!! :D");
-	//			}
-	//			if((int)(y/32) == tileArray[i][j].getY()){
-	//			
-	//			}
-	//		}
-	//	}
+		for(int i = 0; i <= row; i++){
+			for(int j = 0; j <= col; j++){
+				if((int)(x) + width <= tileArray[i][j].getX() + 32 && (int)(x) + width >= tileArray[i][j].getX() || (int)(x) <= tileArray[i][j].getX() + 32 && (int)(x) >= tileArray[i][j].getX()){
+				 	System.out.println("did werk!!! :D");
+				}
+				// if((int)(y/32) == tileArray[i][j].getY()){
+				
+				// }
+			}
+		}
 	}
 	
 	public void setJumping(boolean Jumped){

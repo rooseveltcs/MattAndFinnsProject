@@ -14,7 +14,7 @@ public abstract class Character {
     public Character(float x, float y) throws SlickException{
         this.x = x;
         this.y = y;
-        //placeholder image
+        // placeholder image
         sprite = new Image("testdata/grass.png");
         height = sprite.getHeight();
         width = sprite.getWidth();
