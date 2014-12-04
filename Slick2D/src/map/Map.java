@@ -31,9 +31,9 @@ public class Map extends BasicGameState {
     //private Image background;
     
     
-    public Map(String level) throws SlickException{
+    public Map(String level){
     	levelName = level;
-    	//background = new Image("data/img/backgrounds/" + map.getMapProperty("background", "cloudyPixelBackground.png"));
+    	// background = new Image("data/img/backgrounds/" + map.getMapProperty("background", "cloudyPixelBackground.png"));
     	// level should be "hope"
     	// should use this to reset the window size to fit the map
     }

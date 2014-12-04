@@ -43,16 +43,23 @@ public class Player extends Character {
 	}
 	
 	public void colliding(){
-		int collidedTimes = 0;
-		for(int i = 1; i <= row; i++){
-			for(int j = 1; j <= col; j++){
+		// if(tileArray[4][6] instanceof SolidTile){
+			// System.out.println(tileArray[100][16]);
+		// }
+		//int collidedTimes = 0;
+		for(int i = 0; i <= row - 1; i++){
+			for(int j = 0; j <= col - 1; j++){
 				int tileRightX = i*32 + 32;
 				int tileLeftX = i*32;
-
+				int tileTopY 
+				int tileBottomY
+				
 				if((int)(x) + width <= tileRightX && (int)(x) + width >= tileLeftX || (int)(x) <= tileRightX && (int)(x) >= tileLeftX){
-					if(tileArray[i][j] instanceof SolidTile){
-					collidedTimes++;
-					System.out.println("werk?  " + collidedTimes);
+					if((int)(y) + height <= tileRightX && (int)(y) + height >= tileLeftX || (int)(y) <= tileRightX && (int)(y) >= tileTopY){
+						if(tileArray[i][j] instanceof SolidTile){
+							// collidedTimes++;
+							// System.out.println("werk?  " + collidedTimes);
+						}
 					}
 				}
 			}
