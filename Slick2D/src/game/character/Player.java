@@ -2,8 +2,9 @@ package game.character;
 
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
-
 import slickgame.SlickGame;
+import tiles.SolidTile;
+import tiles.AirTile;
 import tiles.Tile;
 
 public class Player extends Character {
@@ -24,8 +25,7 @@ public class Player extends Character {
         width = sprite.getWidth();
 		tileArray = SlickGame.Game.level1.getTiles();
 		row = tileArray.length;
-		col = tileArray[0].length;
-		System.out.println(tileArray[10][10].getX());
+		col = tileArray[0].length;	
 	}	
 	
 	public void jump(int delta){
@@ -43,16 +43,18 @@ public class Player extends Character {
 	}
 	
 	public void colliding(){
-		
-		
+		int collidedTimes = 0;
 		for(int i = 1; i <= row; i++){
 			for(int j = 1; j <= col; j++){
-				// if((int)(x) + width <= tileArray[i][j].getX() + 32 && (int)(x) + width >= tileArray[i][j].getX() || (int)(x) <= tileArray[i][j].getX() + 32 && (int)(x) >= tileArray[i][j].getX()){
-				
-				// }
-				// if((int)(y/32) == tileArray[i][j].getY()){
-				
-				// }
+				int tileRightX = i*32 + 32;
+				int tileLeftX = i*32;
+
+				if((int)(x) + width <= tileRightX && (int)(x) + width >= tileLeftX || (int)(x) <= tileRightX && (int)(x) >= tileLeftX){
+					if(tileArray[i][j] instanceof SolidTile){
+					collidedTimes++;
+					System.out.println("werk?  " + collidedTimes);
+					}
+				}
 			}
 		}
 	}

@@ -71,11 +71,11 @@ public class Map extends BasicGameState {
     }
  
     public void update(GameContainer container, StateBasedGame sbg, int delta) throws SlickException {
-     	player.colliding();
     	if(player.isJumping()){
     		player.jump(delta);
     	}
     	playerControls.handleInput(container.getInput(), delta);
+    	player.colliding();
     }
     
     public void render(GameContainer container, StateBasedGame sbg, Graphics g) throws SlickException {
