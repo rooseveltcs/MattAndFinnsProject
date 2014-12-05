@@ -51,11 +51,11 @@ public class Player extends Character {
 			for(int j = 0; j <= col - 1; j++){
 				int tileRightX = i*32 + 32;
 				int tileLeftX = i*32;
-				int tileTopY 
-				int tileBottomY
+				int tileTopY =  i*32 + 32;
+				int tileBottomY = i*32;
 				
 				if((int)(x) + width <= tileRightX && (int)(x) + width >= tileLeftX || (int)(x) <= tileRightX && (int)(x) >= tileLeftX){
-					if((int)(y) + height <= tileRightX && (int)(y) + height >= tileLeftX || (int)(y) <= tileRightX && (int)(y) >= tileTopY){
+					if((int)(y) + height <= tileTopY && (int)(y) + height >= tileBottomY || (int)(y) <= tileRightX && (int)(y) >= tileTopY){
 						if(tileArray[i][j] instanceof SolidTile){
 							// collidedTimes++;
 							// System.out.println("werk?  " + collidedTimes);
