@@ -8,8 +8,8 @@ import tiles.AirTile;
 import tiles.Tile;
 
 public class Player extends Character {
-	private double thisJumpHeight = 0;
-	private boolean jumping;
+	protected double thisJumpHeight = 0;
+	protected boolean jumping;
 	protected Tile[][] tileArray;
 	protected boolean hitLeft;
 	protected boolean hitRight;
@@ -17,6 +17,7 @@ public class Player extends Character {
 	protected boolean hitBelow;
 	protected int row;
 	protected int col;
+	protected int collidedTimes = 0;
 	
 	public Player(float x, float y) throws SlickException{
 		super(x,y);
@@ -43,27 +44,31 @@ public class Player extends Character {
 	}
 	
 	public void colliding(){
-		// if(tileArray[4][6] instanceof SolidTile){
-			// System.out.println(tileArray[100][16]);
-		// }
-		//int collidedTimes = 0;
+		if(tileArray[13][4] instanceof SolidTile){
+			System.out.println(tileArray[4][6]);
+		}else{
+			System.out.println("nah");
+		}
+		
+/*	
 		for(int i = 0; i <= row - 1; i++){
 			for(int j = 0; j <= col - 1; j++){
 				int tileRightX = i*32 + 32;
 				int tileLeftX = i*32;
-				int tileTopY =  i*32 + 32;
-				int tileBottomY = i*32;
+				int tileTopY =  j*32 + 32;
+				int tileBottomY = j*32;
 				
 				if((int)(x) + width <= tileRightX && (int)(x) + width >= tileLeftX || (int)(x) <= tileRightX && (int)(x) >= tileLeftX){
-					if((int)(y) + height <= tileTopY && (int)(y) + height >= tileBottomY || (int)(y) <= tileRightX && (int)(y) >= tileTopY){
+					if((int)(y) + height <= tileTopY && (int)(y) + height >= tileBottomY || (int)(y) <= tileTopY && (int)(y) >= tileBottomY){
 						if(tileArray[i][j] instanceof SolidTile){
-							// collidedTimes++;
-							// System.out.println("werk?  " + collidedTimes);
+							collidedTimes++;
+							System.out.println("werk?  " + collidedTimes);
 						}
 					}
 				}
 			}
 		}
+*/
 	}
 	
 	public void setJumping(boolean Jumped){

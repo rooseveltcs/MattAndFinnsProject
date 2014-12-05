@@ -16,7 +16,7 @@ public class SlickGame extends StateBasedGame {
 	public StartScreen Menu = new StartScreen("");
 	public static SlickGame Game = new SlickGame("Game");
 	public Map level1 = new Map("hope");
-	
+
 	public static void main(String[] args) throws SlickException {
 		AppGameContainer gameFrame = new AppGameContainer(Game);
 		// startScreen.setTargetFrameRate(60);
