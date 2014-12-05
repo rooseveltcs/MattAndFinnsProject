@@ -22,7 +22,7 @@ public class SlickGame extends StateBasedGame {
 		// startScreen.setTargetFrameRate(60);
 		gameFrame.setTargetFrameRate(60);
 		gameFrame.setDisplayMode(1000, 750, false);		
-		gameFrame.start();	
+		gameFrame.start();			
 	}
 	
 	public SlickGame(String title) {

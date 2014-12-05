@@ -2,17 +2,13 @@ package map;
  
 import game.character.Character;
 import game.character.Player;
-
 import java.util.ArrayList;
-
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
-import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.tiled.TiledMap;
-
 import tiles.AirTile;
 import tiles.SolidTile;
 import tiles.Tile;
@@ -41,7 +37,8 @@ public class Map extends BasicGameState {
     public void init(GameContainer container, StateBasedGame sbg) throws SlickException {
     	map = new TiledMap("testdata/levels/" + levelName + ".tmx");
     	characters = new ArrayList<Character>();
-        loadTiledMap();
+        
+    	loadTiledMap();
     	// player = new Player(128,405);
         player = new Player(128,355);
         addCharacter(player);

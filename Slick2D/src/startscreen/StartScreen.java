@@ -23,6 +23,7 @@ public class StartScreen extends BasicGameState implements KeyListener{
 	private String optionTwo =  "Tab ->  What shld this do?";
 	private String optionThree ="Quit ->      Quit";
 	
+	// change this so it fits level size
 	public StartScreen(String Name){
 		System.out.println(Name);
 	}
