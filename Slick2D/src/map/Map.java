@@ -5,6 +5,7 @@ import game.character.Player;
 import java.util.ArrayList;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
@@ -24,12 +25,12 @@ public class Map extends BasicGameState {
     // this is here to reveive input.
     public  MouseAndKeyBoardControls playerControls;
     protected TiledMap map;
-    //private Image background;
+    private Image background;
     
     
-    public Map(String level){
+    public Map(String level) throws SlickException{
     	levelName = level;
-    	// background = new Image("data/img/backgrounds/" + map.getMapProperty("background", "cloudyPixelBackground.png"));
+    	background = new Image("data/img/backgrounds/" + map.getMapProperty("background", "cloudyPixelBackground.png"));
     	// level should be "hope"
     	// should use this to reset the window size to fit the map
     }
@@ -121,6 +122,10 @@ public class Map extends BasicGameState {
         }
  
         return y_offset;
+    }
+    
+    private void renderBackground() {
+    	
     }
     
     public int getID() {
