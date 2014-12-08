@@ -17,7 +17,6 @@ public class Player extends Character {
 	protected boolean hitBelow;
 	protected int row;
 	protected int col;
-	protected int collidedTimes = 0;
 	
 	public Player(float x, float y) throws SlickException{
 		super(x,y);
@@ -43,14 +42,15 @@ public class Player extends Character {
 		}
 	}
 	
-	public void colliding(){
-		if(tileArray[13][4] instanceof SolidTile){
-			System.out.println(tileArray[4][6]);
-		}else{
-			System.out.println("nah");
-		}
+	public void colliding(){	
 		
+	System.out.println(tileArray[2][14]);
+	System.out.println(tileArray[19][5]);
+	System.out.println(tileArray[56][7]);
+	System.out.println(tileArray[45][2]);
 /*	
+		
+	int collidedTimes = 0;
 		for(int i = 0; i <= row - 1; i++){
 			for(int j = 0; j <= col - 1; j++){
 				int tileRightX = i*32 + 32;
@@ -62,7 +62,7 @@ public class Player extends Character {
 					if((int)(y) + height <= tileTopY && (int)(y) + height >= tileBottomY || (int)(y) <= tileTopY && (int)(y) >= tileBottomY){
 						if(tileArray[i][j] instanceof SolidTile){
 							collidedTimes++;
-							System.out.println("werk?  " + collidedTimes);
+							System.out.println(i + "   werk?  " + collidedTimes);
 						}
 					}
 				}

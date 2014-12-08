@@ -30,7 +30,6 @@ public class Map extends BasicGameState {
     
     public Map(String level) {
     	levelName = level;
-		
     	// level should be "hope"
     	// should use this to reset the window size to fit the map
     }
@@ -58,6 +57,7 @@ public class Map extends BasicGameState {
     		for(int y = 0; y < map.getHeight(); y++){
     			int tileID = map.getTileId(x, y, layerIndex);
     			Tile tile= null;
+    			System.out.println(map.getTileProperty(tileID, "tileType", "EMPTY"));
     			switch(map.getTileProperty(tileID, "tileType", "air")){
     				case "solid":
     					tile = new SolidTile(x, y);
