@@ -28,9 +28,9 @@ public class Map extends BasicGameState {
     private Image background;
     
     
-    public Map(String level) throws SlickException{
+    public Map(String level) {
     	levelName = level;
-    	background = new Image("data/img/backgrounds/" + map.getMapProperty("background", "cloudyPixelBackground.png"));
+		
     	// level should be "hope"
     	// should use this to reset the window size to fit the map
     }
@@ -38,7 +38,7 @@ public class Map extends BasicGameState {
     public void init(GameContainer container, StateBasedGame sbg) throws SlickException {
     	map = new TiledMap("testdata/levels/" + levelName + ".tmx");
     	characters = new ArrayList<Character>();
-        
+    	background = new Image("testdata/data/img/backgrounds/" + map.getMapProperty("background", "cloudyPixelBackground.png")); 
     	loadTiledMap();
     	// player = new Player(128,405);
         player = new Player(128,355);
