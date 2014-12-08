@@ -58,12 +58,12 @@ public class Map extends BasicGameState {
     		for(int y = 0; y < map.getHeight(); y++){
     			int tileID = map.getTileId(x, y, layerIndex);
     			Tile tile= null;
-    			switch(map.getTileProperty(tileID, "tileType", "solid")){
-    				case "air":
-    					tile = new AirTile(x, y);
+    			switch(map.getTileProperty(tileID, "tileType", "air")){
+    				case "solid":
+    					tile = new SolidTile(x, y);
     					break;
     				default:
-    					tile = new SolidTile(x, y);
+    					tile = new AirTile(x, y);
     			}
     			tileArray[x][y] = tile;
     		}
@@ -125,7 +125,16 @@ public class Map extends BasicGameState {
     }
     
     private void renderBackground() {
-    	
+    	int screenWidth = 1000;
+    	int screenHeight = 750;
+    	//determines how far the background can be scrolled before it hits an edge of the screen.
+    	float scrollingBackgroundX = (background.getWidth() - screenWidth);
+    	float scrollingBackgroundY = (background.getHeight() - screenHeight);
+    	//same as above, but for the map.
+    	float mapScrollX = ((float)map.getWidth()*32 - screenWidth);
+    	float mapSCrollY = ((float)map.getHeight()*32 - screenHeight);
+    
+    	//float 
     }
     
     public int getID() {

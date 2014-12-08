@@ -12,6 +12,9 @@
   </data>
  </layer>
  <layer name="CollisionLayer" width="100" height="16">
+  <properties>
+   <property name="tileType" value="solid"/>
+  </properties>
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAC+2WMQqAMAxFIw7ioA7qaRwdhQ7e/zDWQQhFK7VqUv0PPsQMpf6HIBFRTkCajM2l2C3ARsFm+JAHPnQBH7qAjzhG53ne2YUAH3HsdQ8fcsCHLv7kY2bRytq9e7+UfaTQuY8nvw8TcY6P1Dv3cbcPczCH8oXOr7zDHf+7E5tDfKTUeWVT2zQnuyd4y4dGBhZOa9PZ9Cc794yj80KI9WGcGZHNygJGjjz4ABkAAA==
   </data>
