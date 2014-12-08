@@ -5,6 +5,31 @@
  </properties>
  <tileset firstgid="1" name="simple tileset" tilewidth="32" tileheight="32">
   <image source="../data/img/tilesets/simple_tileset.png" width="192" height="544"/>
+  <tile id="8">
+   <properties>
+    <property name="tileType" value="solid"/>
+   </properties>
+  </tile>
+  <tile id="66">
+   <properties>
+    <property name="tileType" value="solid"/>
+   </properties>
+  </tile>
+  <tile id="77">
+   <properties>
+    <property name="tileType" value="solid"/>
+   </properties>
+  </tile>
+  <tile id="81">
+   <properties>
+    <property name="tileType" value="solid"/>
+   </properties>
+  </tile>
+  <tile id="96">
+   <properties>
+    <property name="tileType" value="air"/>
+   </properties>
+  </tile>
  </tileset>
  <layer name="background" width="100" height="16" visible="0">
   <data encoding="base64" compression="gzip">
@@ -12,11 +37,8 @@
   </data>
  </layer>
  <layer name="CollisionLayer" width="100" height="16">
-  <properties>
-   <property name="tileType" value="solid"/>
-  </properties>
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+2WMQqAMAxFIw7ioA7qaRwdhQ7e/zDWQQhFK7VqUv0PPsQMpf6HIBFRTkCajM2l2C3ARsFm+JAHPnQBH7qAjzhG53ne2YUAH3HsdQ8fcsCHLv7kY2bRytq9e7+UfaTQuY8nvw8TcY6P1Dv3cbcPczCH8oXOr7zDHf+7E5tDfKTUeWVT2zQnuyd4y4dGBhZOa9PZ9Cc794yj80KI9WGcGZHNygJGjjz4ABkAAA==
+   H4sIAAAAAAAAC+2WOw6AIBBE11gYC7VQT2NpaULhDbz/JVwLIyEqBj8sMiSvYIrNMq+BiChlJuCVhLaTC9gndjL4EAV8yAI+ZAEf9+iN+7iTwYc/H0cZfMBHjMTkY9TwvcuZD3O/kH2E0LnNx5XMxYdC5959qId8/KFzlzc88d8dHH2E1HnBlExlyd7gKx8S6TT0vGYaprVk5oyjeV/6WJ0oIILlzM4h0/AAGQAA
   </data>
  </layer>
  <layer name="fluff" width="100" height="16" visible="0">
