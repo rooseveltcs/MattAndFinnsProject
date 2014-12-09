@@ -85,6 +85,7 @@ public class Map extends BasicGameState {
     public void render(GameContainer container, StateBasedGame sbg, Graphics g) throws SlickException {
     	int x_offset = getXOffset();
         int y_offset = getYOffset();
+        renderBackground();
     	map.render(-(x_offset%32), -(y_offset%32), x_offset/32, y_offset/32, 32, 18);
     	for(Character c : characters){
     		 c.render(x_offset,y_offset);
@@ -132,8 +133,12 @@ public class Map extends BasicGameState {
     	float scrollingBackgroundY = (background.getHeight() - screenHeight);
     	//same as above, but for the map.
     	float mapScrollX = ((float)map.getWidth()*32 - screenWidth);
-    	float mapSCrollY = ((float)map.getHeight()*32 - screenHeight);
-    
+    	float mapScrollY = ((float)map.getHeight()*32 - screenHeight);
+    	
+    	float xScrollFactor = scrollingBackgroundX/mapScrollX * -1;
+    	float yScrollFactor = scrollingBackgroundY/mapScrollY * -1;
+    	
+    	background.draw(this.getXOffset()*xScrollFactor, this.getYOffset()*yScrollFactor);
     	//float 
     }
     
