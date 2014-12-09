@@ -11,6 +11,7 @@ public class Player extends Character {
 	protected double thisJumpHeight = 0;
 	protected boolean jumping;
 	protected Tile[][] tileArray;
+	// where the player's sprite collided
 	protected boolean hitLeft;
 	protected boolean hitRight;
 	protected boolean hitAbove;
@@ -41,16 +42,15 @@ public class Player extends Character {
 			y -= 10.667;
 		}
 	}
-	
+	/*
+	if((int)(x) + width <= tileRightX && (int)(x) + width >= tileLeftX 
+			|| (int)(x) <= tileRightX && (int)(x) >= tileLeftX){
+		if((int)(y) + height <= tileTopY && (int)(y) + height >= tileBottomY 
+				|| (int)(y) <= tileTopY && (int)(y) >= tileBottomY){
+	*/
 	public void colliding(){	
-		
-	System.out.println(tileArray[2][14]);
-	System.out.println(tileArray[19][5]);
-	System.out.println(tileArray[56][7]);
-	System.out.println(tileArray[45][2]);
-/*	
-		
-	int collidedTimes = 0;
+		// int collidedTimes = 0;
+
 		for(int i = 0; i <= row - 1; i++){
 			for(int j = 0; j <= col - 1; j++){
 				int tileRightX = i*32 + 32;
@@ -58,17 +58,35 @@ public class Player extends Character {
 				int tileTopY =  j*32 + 32;
 				int tileBottomY = j*32;
 				
-				if((int)(x) + width <= tileRightX && (int)(x) + width >= tileLeftX || (int)(x) <= tileRightX && (int)(x) >= tileLeftX){
-					if((int)(y) + height <= tileTopY && (int)(y) + height >= tileBottomY || (int)(y) <= tileTopY && (int)(y) >= tileBottomY){
-						if(tileArray[i][j] instanceof SolidTile){
-							collidedTimes++;
-							System.out.println(i + "   werk?  " + collidedTimes);
+				// bottom and top collision work fine i think, problem is left and right. 
+				// probably secondary if statement
+				if(tileArray[i][j] instanceof SolidTile){
+					if((int)(x) + width <= tileRightX && (int)(x) + width >= tileLeftX){
+						if((int)(y) <= tileTopY && (int)(y) <= tileBottomY){
+							System.out.println("ya were hit right");
 						}
 					}
+					if((int)(x) <= tileRightX && (int)(x) >= tileLeftX){
+						if((int)(y) <= tileTopY && (int)(y) <= tileBottomY){
+							System.out.println("ya were hit left");
+						}
+					}
+					if((int)(y) + height <= tileTopY && (int)(y) + height >= tileBottomY){
+						if((int)(x) <= tileRightX && (int)(x) >= tileLeftX){
+							System.out.println("ya were hit bottom");
+						}
+					}
+					if((int)(y) <= tileTopY && (int)(y) >= tileBottomY){
+						if((int)(x) <= tileRightX && (int)(x) >= tileLeftX){
+							System.out.println("ya were hit top");
+						}
+					}
+				// collidedTimes++;
+				// System.out.println(i + "   werk?  " + collidedTimes);
 				}
 			}
 		}
-*/
+		System.out.println("left " + hitLeft + " right " + hitRight + " up " + hitAbove + " down " + hitBelow);
 	}
 	
 	public void setJumping(boolean Jumped){
