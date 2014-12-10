@@ -37,7 +37,7 @@ public class Map extends BasicGameState {
     public void init(GameContainer container, StateBasedGame sbg) throws SlickException {
     	map = new TiledMap("testdata/levels/" + levelName + ".tmx");
     	characters = new ArrayList<Character>();
-    	background = new Image("testdata/data/img/backgrounds/" + map.getMapProperty("background", "grassy_mountains_thumb.png")); 
+    	background = new Image("testdata/data/img/backgrounds/" + map.getMapProperty("background", "cabin.png")); 
     	loadTiledMap();
     	// player = new Player(128,405);
         player = new Player(128,355);
@@ -85,7 +85,7 @@ public class Map extends BasicGameState {
     public void render(GameContainer container, StateBasedGame sbg, Graphics g) throws SlickException {
     	int x_offset = getXOffset();
         int y_offset = getYOffset();
-        //renderBackground();
+        renderBackground();
     	map.render(-(x_offset%32), -(y_offset%32), x_offset/32, y_offset/32, 32, 18);
     	for(Character c : characters){
     		 c.render(x_offset,y_offset);
@@ -126,20 +126,8 @@ public class Map extends BasicGameState {
     }
     
     private void renderBackground() {
-    	int screenWidth = 1000;
-    	int screenHeight = 750;
-    	//determines how far the background can be scrolled before it hits an edge of the screen.
-    	float scrollingBackgroundX = (background.getWidth() - screenWidth);
-    	float scrollingBackgroundY = (background.getHeight() - screenHeight);
-    	//same as above, but for the map.
-    	float mapScrollX = ((float)map.getWidth()*32 - screenWidth);
-    	float mapScrollY = ((float)map.getHeight()*32 - screenHeight);
-    	
-    	float xScrollFactor = scrollingBackgroundX/mapScrollX * -1;
-    	float yScrollFactor = scrollingBackgroundY/mapScrollY * -1;
-    	
-    	//background.draw(this.getXOffset()/2, this.getYOffset()/2);
-    	//float 
+    	background.draw();
+    	 
     }
     
     public int getID() {

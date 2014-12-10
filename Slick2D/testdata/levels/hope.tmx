@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" renderorder="right-down" width="100" height="16" tilewidth="32" tileheight="32" backgroundcolor="#478059">
  <properties>
-  <property name="Background" value="grassy_mountains_thumb.png"/>
+  <property name="Background" value="cabin.png"/>
  </properties>
  <tileset firstgid="1" name="simple tileset" tilewidth="32" tileheight="32">
   <image source="../data/img/tilesets/simple_tileset.png" width="192" height="544"/>
