@@ -37,7 +37,7 @@ public class Map extends BasicGameState {
     public void init(GameContainer container, StateBasedGame sbg) throws SlickException {
     	map = new TiledMap("testdata/levels/" + levelName + ".tmx");
     	characters = new ArrayList<Character>();
-    	background = new Image("testdata/data/img/backgrounds/" + map.getMapProperty("background", "cloudyPixelBackground.png")); 
+    	background = new Image("testdata/data/img/backgrounds/" + map.getMapProperty("background", "grassy_mountains_thumb.png")); 
     	loadTiledMap();
     	// player = new Player(128,405);
         player = new Player(128,355);
@@ -85,7 +85,7 @@ public class Map extends BasicGameState {
     public void render(GameContainer container, StateBasedGame sbg, Graphics g) throws SlickException {
     	int x_offset = getXOffset();
         int y_offset = getYOffset();
-        renderBackground();
+        //renderBackground();
     	map.render(-(x_offset%32), -(y_offset%32), x_offset/32, y_offset/32, 32, 18);
     	for(Character c : characters){
     		 c.render(x_offset,y_offset);
@@ -138,7 +138,7 @@ public class Map extends BasicGameState {
     	float xScrollFactor = scrollingBackgroundX/mapScrollX * -1;
     	float yScrollFactor = scrollingBackgroundY/mapScrollY * -1;
     	
-    	background.draw(this.getXOffset()*xScrollFactor, this.getYOffset()*yScrollFactor);
+    	//background.draw(this.getXOffset()/2, this.getYOffset()/2);
     	//float 
     }
     
