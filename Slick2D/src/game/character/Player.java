@@ -61,21 +61,25 @@ public class Player extends Character {
 				// bottom and top collision work fine i think, problem is left and right. 
 				// probably secondary if statement
 				if(tileArray[i][j] instanceof SolidTile){
+					//hit right
 					if((int)(x) + width <= tileRightX && (int)(x) + width >= tileLeftX){
-						if((int)(y) <= tileTopY && (int)(y) <= tileBottomY){
+						if((int)(y) <= tileTopY && (int)(y) >= tileBottomY){
 							System.out.println("ya were hit right");
 						}
 					}
+					//hit left
 					if((int)(x) <= tileRightX && (int)(x) >= tileLeftX){
-						if((int)(y) <= tileTopY && (int)(y) <= tileBottomY){
+						if((int)(y) <= tileTopY && (int)(y) >= tileBottomY){
 							System.out.println("ya were hit left");
 						}
 					}
+					// hit bottom
 					if((int)(y) + height <= tileTopY && (int)(y) + height >= tileBottomY){
 						if((int)(x) <= tileRightX && (int)(x) >= tileLeftX){
 							System.out.println("ya were hit bottom");
 						}
 					}
+					// hit top
 					if((int)(y) <= tileTopY && (int)(y) >= tileBottomY){
 						if((int)(x) <= tileRightX && (int)(x) >= tileLeftX){
 							System.out.println("ya were hit top");
