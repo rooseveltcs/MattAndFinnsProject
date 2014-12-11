@@ -2,6 +2,7 @@ package map;
  
 import game.character.Character;
 import game.character.Player;
+import game.character.aiCharacter;
 import java.util.ArrayList;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
