@@ -41,7 +41,7 @@ public class Map extends BasicGameState {
     	background = new Image("testdata/data/img/backgrounds/" + map.getMapProperty("background", "cabin.png")); 
     	loadTiledMap();
     	// player = new Player(128,405);
-        player = new Player(128,355);
+        player = new Player(128,400);
         addCharacter(player);
         playerControls = new MouseAndKeyBoardControls(player); 
     }
@@ -122,8 +122,9 @@ public class Map extends BasicGameState {
         }else{
             y_offset = (int) (player.getY()-halfHigh);
         }
- 
-        return y_offset;
+        // stops scrolling along the y, so that i can fix jumping first
+        return 0;
+        // return y_offset;
     }
     
     private void renderBackground() {

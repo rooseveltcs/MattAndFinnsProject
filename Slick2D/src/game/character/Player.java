@@ -11,7 +11,8 @@ public class Player extends Character {
 	protected double thisJumpHeight = 0;
 	protected boolean jumping;
 	protected Tile[][] tileArray;
-	// where the player's sprite collided
+	// The collision method and booleans should go in character when finished
+	// Where the player's sprite collided
 	protected boolean hitLeft;
 	protected boolean hitRight;
 	protected boolean hitAbove;
@@ -33,23 +34,26 @@ public class Player extends Character {
 		double jumpSpeed = 2;
 		thisJumpHeight++;		
 		// fix this  when actual collision works
-		if(y <= 350){
+		if(hitBelow || thisJumpHeight == 0){
 			y = (float) y -  (float)(jumpSpeed * (.35 - thisJumpHeight / 60) * delta);
 		}else{
 			thisJumpHeight = 0;
 			setJumping(false);
-			// this is the exact offset between where the sprite lands, and the boundary on the if statement
-			y -= 10.667;
 		}
 	}
 	/*
-	if((int)(x) + width <= tileRightX && (int)(x) + width >= tileLeftX 
-			|| (int)(x) <= tileRightX && (int)(x) >= tileLeftX){
-		if((int)(y) + height <= tileTopY && (int)(y) + height >= tileBottomY 
-				|| (int)(y) <= tileTopY && (int)(y) >= tileBottomY){
+	double jumpSpeed = 2;
+	thisJumpHeight++;		
+	// fix this  when actual collision works
+	if(y <= 350){
+		y = (float) y -  (float)(jumpSpeed * (.35 - thisJumpHeight / 60) * delta);
+	}else{
+		thisJumpHeight = 0;
+		setJumping(false);
+		y -= 10.667;
+	}
 	*/
 	public void colliding(){	
-		// int collidedTimes = 0;
 
 		for(int i = 0; i <= row - 1; i++){
 			for(int j = 0; j <= col - 1; j++){
@@ -58,39 +62,42 @@ public class Player extends Character {
 				int tileTopY =  j*32 + 32;
 				int tileBottomY = j*32;
 				
-				// bottom and top collision work fine i think, problem is left and right. 
-				// probably secondary if statement
 				if(tileArray[i][j] instanceof SolidTile){
 					//hit right
-					if((int)(x) + width <= tileRightX && (int)(x) + width >= tileLeftX){
-						if((int)(y) <= tileTopY && (int)(y) >= tileBottomY){
-							System.out.println("ya were hit right");
+					if((int)(y) <= tileTopY && (int)(y) >= tileBottomY){
+						if(((int)(x) + width) <= tileRightX && ((int)(x) + width) >= tileLeftX){
+							hitRight = true;
 						}
+					}else{
+						// hitRight = false;
 					}
 					//hit left
 					if((int)(x) <= tileRightX && (int)(x) >= tileLeftX){
 						if((int)(y) <= tileTopY && (int)(y) >= tileBottomY){
-							System.out.println("ya were hit left");
+							hitLeft = true;
 						}
+					}else{
+						// hitLeft = false;
 					}
-					// hit bottom
-					if((int)(y) + height <= tileTopY && (int)(y) + height >= tileBottomY){
+					// hit below
+					if(((int)(y) + height) <= tileTopY && ((int)(y) + height) >= tileBottomY){
 						if((int)(x) <= tileRightX && (int)(x) >= tileLeftX){
-							System.out.println("ya were hit bottom");
+							hitBelow = true;
 						}
+					}else{
+						// hitBelow = false;
 					}
-					// hit top
+					// hit above
 					if((int)(y) <= tileTopY && (int)(y) >= tileBottomY){
 						if((int)(x) <= tileRightX && (int)(x) >= tileLeftX){
-							System.out.println("ya were hit top");
+							hitAbove = true;
 						}
+					}else{
+						// hitAbove = false;
 					}
-				// collidedTimes++;
-				// System.out.println(i + "   werk?  " + collidedTimes);
 				}
 			}
 		}
-		System.out.println("left " + hitLeft + " right " + hitRight + " up " + hitAbove + " down " + hitBelow);
 	}
 	
 	public void setJumping(boolean Jumped){
@@ -100,13 +107,20 @@ public class Player extends Character {
 	public boolean isJumping(){
 		return jumping;
 	}
-	
+	//move left
     public void moveRight(int delta){
-    	x = x - (.25f * delta);
+    	if(!hitLeft){
+    		x = x - (.25f * delta);
+    	}
+    	hitRight = false;
     }	
-    	
+    //move right	
     public void moveLeft(int delta){
-    	x = x + (.25f * delta);
+    	if(!hitRight){
+    		x = x + (.25f * delta);
+    	}
+    
+    	hitLeft = false;
     }   
 }
 
