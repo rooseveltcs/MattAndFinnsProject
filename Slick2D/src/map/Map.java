@@ -1,9 +1,11 @@
 package map;
  
 import game.character.Character;
+import game.character.JarBro;
 import game.character.Player;
-import game.character.aiCharacter;
+
 import java.util.ArrayList;
+
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
@@ -11,6 +13,7 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.tiled.TiledMap;
+
 import tiles.AirTile;
 import tiles.SolidTile;
 import tiles.Tile;
@@ -23,6 +26,7 @@ public class Map extends BasicGameState {
     private ArrayList<Character> characters;
     private Player player; 
     private String levelName;
+    private JarBro jarbro1; 
     // this is here to reveive input.
     public  MouseAndKeyBoardControls playerControls;
     protected TiledMap map;
@@ -40,7 +44,8 @@ public class Map extends BasicGameState {
     	characters = new ArrayList<Character>();
     	background = new Image("testdata/data/img/backgrounds/" + map.getMapProperty("background", "cabin.png")); 
     	loadTiledMap();
-    	// player = new Player(128,405);
+    	jarbro1 = new JarBro(400, 400);
+    	addCharacter(jarbro1);
         player = new Player(128,400);
         addCharacter(player);
         playerControls = new MouseAndKeyBoardControls(player); 
@@ -78,6 +83,9 @@ public class Map extends BasicGameState {
     public void update(GameContainer container, StateBasedGame sbg, int delta) throws SlickException {
     	if(player.isJumping()){
     		player.jump(delta);
+    	}
+    	if(jarbro1.movering()){
+    		jarbro1.move(delta);
     	}
     	playerControls.handleInput(container.getInput(), delta);
     	player.colliding();

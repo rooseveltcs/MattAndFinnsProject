@@ -20,17 +20,23 @@ public class aiCharacter extends Character  {
 		
 	}
 	public void move(int delta) {
-		 if (isMoving = true){
-			 
+		 if (!isMoving){
+			 if(direction){
+				 x = x - (.25f * delta);
+			 }else{
+				 x = x + (.25f * delta);
+			 }
 		 }
 	}
 	
-    public void movering() {
+    public boolean movering() {
     	
     	int changeMove = (int) (100*Math.random());
     	if (changeMove >= inertia){
-    		isMoving = !isMoving;
-    	}
+    		return !isMoving;
+    	}else{
+    		return isMoving;
+    	}    	
     }
     public void direction() {
     	int changeDirection = (int) (100*Math.random());
