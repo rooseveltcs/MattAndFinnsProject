@@ -2,14 +2,14 @@ package game.character;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+import java.lang.Math;
 import javax.swing.Timer;
 import org.newdawn.slick.SlickException;
 
 public class aiCharacter extends Character  {
 	//true is right, false is left.
 	protected boolean direction = true;
-	protected boolean isMoving = false;
+	public boolean isMoving = false;
 	protected int inertia = 65;
 	int pause = 5000;
 	public aiCharacter(float x, float y) throws SlickException {
