@@ -31,6 +31,19 @@ public class Player extends Character {
 	}	
 	
 	public void jump(int delta){
+		if(hitAbove){
+			System.out.println("hitabove");
+		}
+		double jumpSpeed = 2;
+		thisJumpHeight++;		
+		// fix this  when actual collision works
+		if(y <= 350){
+			y = (float) y -  (float)(jumpSpeed * (.35 - thisJumpHeight / 60) * delta);
+		}else{
+			thisJumpHeight = 0;
+			setJumping(false);
+			y -= 10.667;
+		/*
 		double jumpSpeed = 2;
 		thisJumpHeight++;		
 		// fix this  when actual collision works
@@ -39,20 +52,10 @@ public class Player extends Character {
 		}else{
 			thisJumpHeight = 0;
 			setJumping(false);
+		*/
 		}
 	}
-	/*
-	double jumpSpeed = 2;
-	thisJumpHeight++;		
-	// fix this  when actual collision works
-	if(y <= 350){
-		y = (float) y -  (float)(jumpSpeed * (.35 - thisJumpHeight / 60) * delta);
-	}else{
-		thisJumpHeight = 0;
-		setJumping(false);
-		y -= 10.667;
-	}
-	*/
+
 	public void colliding(){	
 
 		for(int i = 0; i <= row - 1; i++){
@@ -63,38 +66,66 @@ public class Player extends Character {
 				int tileBottomY = j*32;
 				
 				if(tileArray[i][j] instanceof SolidTile){
-					//hit right
-					if((int)(y) <= tileTopY && (int)(y) >= tileBottomY){
+			/*		
+					if(((int)(y) <= tileTopY && (int)(y) >= tileBottomY) || ((int)(y) + height <= tileTopY && (int)(y) + height >= tileBottomY ||((int)(y) + height <= tileTopY && (int)(y) + height >= tileBottomY))){
 						if(((int)(x) + width) <= tileRightX && ((int)(x) + width) >= tileLeftX){
 							hitRight = true;
 						}
-					}else{
-						// hitRight = false;
-					}
-					//hit left
-					if((int)(x) <= tileRightX && (int)(x) >= tileLeftX){
-						if((int)(y) <= tileTopY && (int)(y) >= tileBottomY){
+						if((int)(x) <= tileRightX && (int)(x) >= tileLeftX){
 							hitLeft = true;
 						}
-					}else{
-						// hitLeft = false;
+					}
+			sloppppppy
+			*/		
+					// IF THE CHARACTER'S TOP IS IN BETWEEN THE TILE TOP AND BOTTOM
+					if((int)(y) >= tileTopY && (int)(y) <= tileBottomY){
+					//hit right
+						if(((int)(x) + width) <= tileRightX && ((int)(x) + width) >= tileLeftX){
+							hitRight = true;
+						}else{
+						 	hitRight = false;
+						}
+					//hit left
+						if((int)(x) <= tileRightX && (int)(x) >= tileLeftX){
+							hitLeft = true;
+						}else{
+							hitLeft = false;
+						}
+					hitAbove = true;
+					
+					}if((int)(y) <= tileTopY && ((int)(y) + height) >= tileBottomY){
+					//hit right	
+						if(((int)(x) + width) <= tileRightX && ((int)(x) + width) >= tileLeftX){
+							hitRight = true;
+						}else{
+						 	hitRight = false;
+						}
+					//hit left
+						if((int)(x) <= tileRightX && (int)(x) >= tileLeftX){
+							hitLeft = true;
+						}else{
+							hitLeft = false;
+						}
 					}
 					// hit below
-					if(((int)(y) + height) <= tileTopY && ((int)(y) + height) >= tileBottomY){
-						if((int)(x) <= tileRightX && (int)(x) >= tileLeftX){
-							hitBelow = true;
+					if(((int)(y) + height) <= tileBottomY && ((int)(y) + height) >= tileTopY){
+					//hit right	
+						if(((int)(x) + width) <= tileRightX && ((int)(x) + width) >= tileLeftX){
+							hitRight = true;
+						}else{
+							hitRight = false;
 						}
-					}else{
-						// hitBelow = false;
-					}
-					// hit above
-					if((int)(y) <= tileTopY && (int)(y) >= tileBottomY){
+						//hit left
 						if((int)(x) <= tileRightX && (int)(x) >= tileLeftX){
-							hitAbove = true;
-						}
+							hitLeft = true;
+						}else{
+							hitLeft = false;
+						}	
+					hitBelow = true;
 					}else{
-						// hitAbove = false;
+						hitBelow = false;
 					}
+					
 				}
 			}
 		}
