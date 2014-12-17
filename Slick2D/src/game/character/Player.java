@@ -62,11 +62,39 @@ public class Player extends Character {
 			for(int j = 0; j <= col - 1; j++){
 				int tileRightX = i*32 + 32;
 				int tileLeftX = i*32;
-				int tileTopY =  j*32 + 32;
-				int tileBottomY = j*32;
+				int tileBottomY =  j*32 + 32;
+				int tileTopY = j*32;
 				
 				if(tileArray[i][j] instanceof SolidTile){
-			/*		
+					// hit right collision
+					if(((int)(y) >= tileTopY && (int)(y) <= tileBottomY)){
+						if(((int)(x) + width) <= tileRightX && ((int)(x) + width) >= tileLeftX){
+							hitRight = true;
+						}
+					}else if((((int)(y) + height) >= tileTopY && ((int)(y) + height) <= tileBottomY)){
+						if(((int)(x) + width) <= tileRightX && ((int)(x) + width) >= tileLeftX){
+							hitRight = true;
+						}
+					}else if(((int)(y) <= tileTopY && ((int)(y) + height) >= tileBottomY)){
+						if(((int)(x) + width) <= tileRightX && ((int)(x) + width) >= tileLeftX){
+							hitRight = true;
+					}
+						
+					// hit top collision
+					}else if((int)(y) <= tileBottomY + 3 && (int)(y) >= tileBottomY + 3){
+						if(((int)(x) + width) <= tileRightX && ((int)(x) + width) >= tileLeftX){
+							hitAbove = true;
+							System.out.println("gat ya right above");
+						}
+						if((int)(x) <= tileRightX && (int)(x) >= tileLeftX){
+							hitAbove = true;
+							System.out.println("gat ya left above");
+						}
+						System.out.println("thishappened atleast");
+					}
+					
+										
+					/*	
 					if(((int)(y) <= tileTopY && (int)(y) >= tileBottomY) || ((int)(y) + height <= tileTopY && (int)(y) + height >= tileBottomY ||((int)(y) + height <= tileTopY && (int)(y) + height >= tileBottomY))){
 						if(((int)(x) + width) <= tileRightX && ((int)(x) + width) >= tileLeftX){
 							hitRight = true;
@@ -75,9 +103,7 @@ public class Player extends Character {
 							hitLeft = true;
 						}
 					}
-			sloppppppy
-			*/		
-					// IF THE CHARACTER'S TOP IS IN BETWEEN THE TILE TOP AND BOTTOM
+			
 					if((int)(y) >= tileTopY && (int)(y) <= tileBottomY){
 					//hit right
 						if(((int)(x) + width) <= tileRightX && ((int)(x) + width) >= tileLeftX){
@@ -125,10 +151,11 @@ public class Player extends Character {
 					}else{
 						hitBelow = false;
 					}
-					
+					*/					
 				}
 			}
 		}
+	//	System.out.println(hitLeft + "  " + hitRight + "  " + hitAbove + "  " + hitBelow);
 	}
 	
 	public void setJumping(boolean Jumped){
@@ -150,7 +177,6 @@ public class Player extends Character {
     	if(!hitRight){
     		x = x + (.25f * delta);
     	}
-    
     	hitLeft = false;
     }   
 }
