@@ -84,9 +84,12 @@ public class Map extends BasicGameState {
     	if(player.isJumping()){
     		player.jump(delta);
     	}
-    	if(jarbro1.movering()){
+    	if(!jarbro1.isMoving){
+    		jarbro1.isMoving = jarbro1.movering();
+    	}else{
     		jarbro1.move(delta);
     	}
+    
     	playerControls.handleInput(container.getInput(), delta);
     	player.colliding();
     }
