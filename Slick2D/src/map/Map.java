@@ -56,6 +56,7 @@ public class Map extends BasicGameState {
     }
     
     public void loadTiledMap(){
+    	System.out.println(map.getWidth() + "  " + map.getHeight());
     	tileArray = new Tile[map.getWidth()][map.getHeight()];  
     	// gets index layer of the collision layer made in Tiled.
     	int layerIndex = map.getLayerIndex("CollisionLayer");
@@ -71,7 +72,7 @@ public class Map extends BasicGameState {
     					tile = new AirTile(x, y);
     			}
     			tileArray[x][y] = tile;
-    			System.out.println(map.getTileProperty(tileID, "tileType", "EMPTY"));
+    			// System.out.println(map.getTileProperty(tileID, "tileType", "EMPTY"));
     		}
     	}
     }

@@ -37,7 +37,7 @@ public class Player extends Character {
 		double jumpSpeed = 2;
 		thisJumpHeight++;		
 		// fix this  when actual collision works
-		if(y <= 350){
+		if(y <= 430){
 			y = (float) y -  (float)(jumpSpeed * (.35 - thisJumpHeight / 60) * delta);
 		}else{
 			thisJumpHeight = 0;
@@ -81,7 +81,7 @@ public class Player extends Character {
 					}
 						
 					// hit top collision
-					}else if((int)(y) <= tileBottomY + 3 && (int)(y) >= tileBottomY + 3){
+					}else if((int)(y) <= tileBottomY && (int)(y) >= tileTopY){
 						if(((int)(x) + width) <= tileRightX && ((int)(x) + width) >= tileLeftX){
 							hitAbove = true;
 							System.out.println("gat ya right above");
@@ -90,7 +90,7 @@ public class Player extends Character {
 							hitAbove = true;
 							System.out.println("gat ya left above");
 						}
-						System.out.println("thishappened atleast");
+					// System.out.println("thishappened atleast");
 					}
 					
 										

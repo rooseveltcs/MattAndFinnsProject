@@ -17,7 +17,7 @@ public class StartScreen extends BasicGameState implements KeyListener{
 	private Image frame; 
 	private Image pointer; 
 	private int menuX = 422;
-	private int menuY = 250;
+	private int menuY = 210;
 	private int menuSpacing = 75;
 	private String optionOne =  "Enter ->   Start Game";
 	private String optionTwo =  "Tab ->  What shld this do?";
@@ -25,7 +25,7 @@ public class StartScreen extends BasicGameState implements KeyListener{
 	
 	// change this so it fits level size
 	public StartScreen(String Name){
-		System.out.println(Name);
+		// System.out.println(Name);
 	}
 	@Override
 	public void render(GameContainer gc, StateBasedGame arg1, Graphics g)

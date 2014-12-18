@@ -21,7 +21,7 @@ public class SlickGame extends StateBasedGame {
 		AppGameContainer gameFrame = new AppGameContainer(Game);
 		// startScreen.setTargetFrameRate(60);
 		gameFrame.setTargetFrameRate(60);
-		gameFrame.setDisplayMode(1000, 750, false);		
+		gameFrame.setDisplayMode(1000, 512, false);		
 		gameFrame.start();			
 	}
 	
