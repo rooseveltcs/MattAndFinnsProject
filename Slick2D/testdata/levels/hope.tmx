@@ -15,6 +15,11 @@
     <property name="tileType" value="solid"/>
    </properties>
   </tile>
+  <tile id="70">
+   <properties>
+    <property name="tileType" value="solid"/>
+   </properties>
+  </tile>
   <tile id="77">
    <properties>
     <property name="tileType" value="solid"/>

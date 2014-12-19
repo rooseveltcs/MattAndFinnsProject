@@ -20,7 +20,7 @@ public class aiCharacter extends Character  {
 		
 	}
 	public void move(int delta) {
-		 if (!isMoving){
+		 if (isMoving){
 			 if(direction){
 				 x = x - (.25f * delta);
 			 }else{
