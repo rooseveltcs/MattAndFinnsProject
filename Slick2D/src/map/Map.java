@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
+import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
@@ -31,7 +32,7 @@ public class Map extends BasicGameState {
     public  MouseAndKeyBoardControls playerControls;
     protected TiledMap map;
     private Image background;
-    
+    Music backgroundMusic;
     
     public Map(String level) {
     	levelName = level;
@@ -44,6 +45,8 @@ public class Map extends BasicGameState {
     	characters = new ArrayList<Character>();
     	background = new Image("testdata/data/img/backgrounds/" + map.getMapProperty("background", "cabin.png")); 
     	loadTiledMap();
+    	backgroundMusic = new Music("testdata/Music/jasonMusic.ogg");
+    	backgroundMusic.loop();
     	jarbro1 = new JarBro(400, 400);
     	addCharacter(jarbro1);
         player = new Player(128,400);
