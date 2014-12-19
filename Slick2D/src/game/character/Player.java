@@ -33,12 +33,10 @@ public class Player extends Character {
 	public void jump(int delta){
 		double jumpSpeed = 2;
 		double fallSpeed = thisJumpHeight / 60;
-		if(hitBelow){
 		
-		}else{
 		thisJumpHeight++;		
 
-		if(y <= 450){
+		if(y <= 400){
 			y = (float) y -  (float)(jumpSpeed * (.35 - fallSpeed) * delta);
 		}else{
 			thisJumpHeight = 0;
@@ -54,7 +52,7 @@ public class Player extends Character {
 			thisJumpHeight = 0;
 			setJumping(false);
 		*/
-			}
+			
 		}
 	}
 		
@@ -87,8 +85,8 @@ public class Player extends Character {
 		// MIDDLE COLUMN
 		//  2 X 1
 		if(tileArray[(int)(((x - (x%32)))/32)][(int)(((y - (y%32)) - 32)/32)] instanceof SolidTile){
+			// this hits on the top left most tile, should only hit on top middle
 			hitAbove = true;
-			System.out.println("top proc");
 		}
 		//  2 X 4
 		if(tileArray[(int)(((x - (x%32)))/32)][(int)(((y - (y%32)) + (32 * 2))/32)] instanceof SolidTile){
