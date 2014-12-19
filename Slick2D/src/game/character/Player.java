@@ -31,14 +31,15 @@ public class Player extends Character {
 	}	
 	
 	public void jump(int delta){
-		if(hitAbove){
-			System.out.println("hitabove");
-		}
 		double jumpSpeed = 2;
+		double fallSpeed = thisJumpHeight / 60;
+		if(hitBelow){
+		
+		}else{
 		thisJumpHeight++;		
-		// fix this  when actual collision works
-		if(y <= 430){
-			y = (float) y -  (float)(jumpSpeed * (.35 - thisJumpHeight / 60) * delta);
+
+		if(y <= 450){
+			y = (float) y -  (float)(jumpSpeed * (.35 - fallSpeed) * delta);
 		}else{
 			thisJumpHeight = 0;
 			setJumping(false);
@@ -53,11 +54,66 @@ public class Player extends Character {
 			thisJumpHeight = 0;
 			setJumping(false);
 		*/
+			}
 		}
 	}
-
+		
 	public void colliding(){	
-
+		// problem with top tile, prob because the character can get stuck in two tiles at once.
+		
+		// height 46
+		// width 29
+		
+		//  3 X 4 grid surrounding the character
+		
+		// FAR RIGHT COLUMN
+		//  3 x 4
+		if(tileArray[(int)(((x - (x%32)) + 32)/32)][(int)(((y - (y%32)) + (32 * 2))/32)] instanceof SolidTile){
+			hitRight = true;
+		}
+		//  3 x 3
+		if(tileArray[(int)(((x - (x%32)) + 32)/32)][(int)(((y - (y%32)) + 32)/32)] instanceof SolidTile){
+			hitRight = true;
+		}
+		//  3 x 2
+		if(tileArray[(int)(((x - (x%32)) + 32)/32)][(int)(((y - (y%32)))/32)] instanceof SolidTile){
+			hitRight = true;
+		}
+		//  3 x 1
+		if(tileArray[(int)(((x - (x%32)) + 32)/32)][(int)(((y - (y%32)) - 32)/32)] instanceof SolidTile){
+			hitRight = true;
+		}
+		
+		// MIDDLE COLUMN
+		//  2 X 1
+		if(tileArray[(int)(((x - (x%32)))/32)][(int)(((y - (y%32)) - 32)/32)] instanceof SolidTile){
+			hitAbove = true;
+			System.out.println("top proc");
+		}
+		//  2 X 4
+		if(tileArray[(int)(((x - (x%32)))/32)][(int)(((y - (y%32)) + (32 * 2))/32)] instanceof SolidTile){
+			hitBelow = true;
+		}
+		
+		// FAR LEFT COLUMN
+		//  1 x 1
+		if(tileArray[(int)(((x - (x%32)))/32)][(int)(((y - (y%32)) - 32)/32)] instanceof SolidTile){
+			hitLeft = true;
+		}
+		//  1 x 2
+		if(tileArray[(int)(((x - (x%32)))/32)][(int)(((y - (y%32)))/32)] instanceof SolidTile){
+			hitLeft = true;
+		}
+		//  1 x 3
+		if(tileArray[(int)(((x - (x%32)))/32)][(int)(((y - (y%32)) + 32)/32)] instanceof SolidTile){
+			hitLeft = true;
+		}
+		//  1 x 4
+		if(tileArray[(int)(((x - (x%32)))/32)][(int)(((y - (y%32)) + (32 * 2))/32)] instanceof SolidTile){
+			hitLeft = true;
+		}
+		
+		/*
 		for(int i = 0; i <= row - 1; i++){
 			for(int j = 0; j <= col - 1; j++){
 				int tileRightX = i*32 + 32;
@@ -66,35 +122,55 @@ public class Player extends Character {
 				int tileTopY = j*32;
 				
 				if(tileArray[i][j] instanceof SolidTile){
-					// hit right collision
+					// top RIGHT corner inside hit box?
 					if(((int)(y) >= tileTopY && (int)(y) <= tileBottomY)){
 						if(((int)(x) + width) <= tileRightX && ((int)(x) + width) >= tileLeftX){
 							hitRight = true;
 						}
-					}else if((((int)(y) + height) >= tileTopY && ((int)(y) + height) <= tileBottomY)){
+					}
+					// bottom RIGHT corner inside hit box?
+					if((((int)(y) + height) >= tileTopY && ((int)(y) + height) <= tileBottomY)){
 						if(((int)(x) + width) <= tileRightX && ((int)(x) + width) >= tileLeftX){
 							hitRight = true;
 						}
-					}else if(((int)(y) <= tileTopY && ((int)(y) + height) >= tileBottomY)){
+					}
+					// top LEFT corner inside hit box?
+					if(((int)(y) >= tileTopY && (int)(y) <= tileBottomY)){
+						if((int)(x) <= tileRightX && (int)(x) >= tileLeftX){
+							hitLeft = true;
+						}
+					}
+					// bottom LEFT corner inside hit box?
+					if((((int)(y) + height) >= tileTopY && ((int)(y) + height) <= tileBottomY)){
+						if((int)(x) <= tileRightX && (int)(x) >= tileLeftX){
+							hitLeft = true;
+						}
+					}
+					// hit box is inside the player
+					if(((int)(y) <= tileTopY && ((int)(y) + height) >= tileBottomY)){
 						if(((int)(x) + width) <= tileRightX && ((int)(x) + width) >= tileLeftX){
 							hitRight = true;
-					}
-						
-					// hit top collision
-					}else if((int)(y) <= tileBottomY && (int)(y) >= tileTopY){
-						if(((int)(x) + width) <= tileRightX && ((int)(x) + width) >= tileLeftX){
-							hitAbove = true;
-							System.out.println("gat ya right above");
 						}
 						if((int)(x) <= tileRightX && (int)(x) >= tileLeftX){
-							hitAbove = true;
-							System.out.println("gat ya left above");
+							hitLeft = true;
 						}
-					// System.out.println("thishappened atleast");
 					}
+		 						
+					// hit top collision
+						}else if((int)(y) <= tileBottomY && (int)(y) >= tileTopY){
+							if(((int)(x) + width) <= tileRightX && ((int)(x) + width) >= tileLeftX){
+								hitAbove = true;
+								System.out.println("gat ya right above");
+							}
+							if((int)(x) <= tileRightX && (int)(x) >= tileLeftX){
+								hitAbove = true;
+								System.out.println("gat ya left above");
+							}
+					// System.out.println("thishappened atleast");
 					
-										
-					/*	
+						
+						}
+						
 					if(((int)(y) <= tileTopY && (int)(y) >= tileBottomY) || ((int)(y) + height <= tileTopY && (int)(y) + height >= tileBottomY ||((int)(y) + height <= tileTopY && (int)(y) + height >= tileBottomY))){
 						if(((int)(x) + width) <= tileRightX && ((int)(x) + width) >= tileLeftX){
 							hitRight = true;
@@ -151,12 +227,12 @@ public class Player extends Character {
 					}else{
 						hitBelow = false;
 					}
-					*/					
 				}
 			}
-		}
-	//	System.out.println(hitLeft + "  " + hitRight + "  " + hitAbove + "  " + hitBelow);
+			*/	
+			//	System.out.println(hitLeft + "  " + hitRight + "  " + hitAbove + "  " + hitBelow);
 	}
+
 	
 	public void setJumping(boolean Jumped){
 		jumping = Jumped;

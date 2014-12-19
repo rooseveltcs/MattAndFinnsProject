@@ -27,7 +27,7 @@ public class Map extends BasicGameState {
     private Player player; 
     private String levelName;
     private JarBro jarbro1; 
-    // this is here to reveive input.
+    // this is here to receive input.
     public  MouseAndKeyBoardControls playerControls;
     protected TiledMap map;
     private Image background;
@@ -56,7 +56,6 @@ public class Map extends BasicGameState {
     }
     
     public void loadTiledMap(){
-    	System.out.println(map.getWidth() + "  " + map.getHeight());
     	tileArray = new Tile[map.getWidth()][map.getHeight()];  
     	// gets index layer of the collision layer made in Tiled.
     	int layerIndex = map.getLayerIndex("CollisionLayer");
