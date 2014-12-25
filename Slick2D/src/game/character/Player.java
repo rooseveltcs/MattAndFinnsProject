@@ -8,8 +8,8 @@ import tiles.AirTile;
 import tiles.Tile;
 
 public class Player extends Character {
-	protected double thisJumpHeight = 0;
-	protected boolean jumping;
+	protected double thisJumpHeight = 0.0;
+	protected boolean jumping = false;
 	protected Tile[][] tileArray;
 	// The collision method and booleans should go in character when finished
 	// Where the player's sprite collided
@@ -33,15 +33,14 @@ public class Player extends Character {
 	public void jump(int delta){
 		double jumpSpeed = 2;
 		double fallSpeed = thisJumpHeight / 60;
-		
 		thisJumpHeight++;		
-
-		if(y <= 400){
+		// (!hitAbove) && thisJumpHeight == 0
+		if(jumping){
 			y = (float) y -  (float)(jumpSpeed * (.35 - fallSpeed) * delta);
-		}else{
-			thisJumpHeight = 0;
+		}else if(hitBelow){
+			thisJumpHeight = 0.0;
 			setJumping(false);
-			y -= 10.667;
+		}
 		/*
 		double jumpSpeed = 2;
 		thisJumpHeight++;		
@@ -52,8 +51,6 @@ public class Player extends Character {
 			thisJumpHeight = 0;
 			setJumping(false);
 		*/
-			
-		}
 	}
 		
 	public void colliding(){	
@@ -66,9 +63,11 @@ public class Player extends Character {
 		
 		// FAR RIGHT COLUMN
 		//  3 x 4
+		/*
 		if(tileArray[(int)(((x - (x%32)) + 32)/32)][(int)(((y - (y%32)) + (32 * 2))/32)] instanceof SolidTile){
 			hitRight = true;
 		}
+		*/
 		//  3 x 3
 		if(tileArray[(int)(((x - (x%32)) + 32)/32)][(int)(((y - (y%32)) + 32)/32)] instanceof SolidTile){
 			hitRight = true;
@@ -78,9 +77,11 @@ public class Player extends Character {
 			hitRight = true;
 		}
 		//  3 x 1
+		/*
 		if(tileArray[(int)(((x - (x%32)) + 32)/32)][(int)(((y - (y%32)) - 32)/32)] instanceof SolidTile){
 			hitRight = true;
 		}
+		*/
 		
 		// MIDDLE COLUMN
 		//  2 X 1
@@ -95,9 +96,11 @@ public class Player extends Character {
 		
 		// FAR LEFT COLUMN
 		//  1 x 1
+		/*
 		if(tileArray[(int)(((x - (x%32)))/32)][(int)(((y - (y%32)) - 32)/32)] instanceof SolidTile){
 			hitLeft = true;
 		}
+		*/
 		//  1 x 2
 		if(tileArray[(int)(((x - (x%32)))/32)][(int)(((y - (y%32)))/32)] instanceof SolidTile){
 			hitLeft = true;
@@ -107,128 +110,11 @@ public class Player extends Character {
 			hitLeft = true;
 		}
 		//  1 x 4
+		/*
 		if(tileArray[(int)(((x - (x%32)))/32)][(int)(((y - (y%32)) + (32 * 2))/32)] instanceof SolidTile){
 			hitLeft = true;
 		}
-		
-		/*
-		for(int i = 0; i <= row - 1; i++){
-			for(int j = 0; j <= col - 1; j++){
-				int tileRightX = i*32 + 32;
-				int tileLeftX = i*32;
-				int tileBottomY =  j*32 + 32;
-				int tileTopY = j*32;
-				
-				if(tileArray[i][j] instanceof SolidTile){
-					// top RIGHT corner inside hit box?
-					if(((int)(y) >= tileTopY && (int)(y) <= tileBottomY)){
-						if(((int)(x) + width) <= tileRightX && ((int)(x) + width) >= tileLeftX){
-							hitRight = true;
-						}
-					}
-					// bottom RIGHT corner inside hit box?
-					if((((int)(y) + height) >= tileTopY && ((int)(y) + height) <= tileBottomY)){
-						if(((int)(x) + width) <= tileRightX && ((int)(x) + width) >= tileLeftX){
-							hitRight = true;
-						}
-					}
-					// top LEFT corner inside hit box?
-					if(((int)(y) >= tileTopY && (int)(y) <= tileBottomY)){
-						if((int)(x) <= tileRightX && (int)(x) >= tileLeftX){
-							hitLeft = true;
-						}
-					}
-					// bottom LEFT corner inside hit box?
-					if((((int)(y) + height) >= tileTopY && ((int)(y) + height) <= tileBottomY)){
-						if((int)(x) <= tileRightX && (int)(x) >= tileLeftX){
-							hitLeft = true;
-						}
-					}
-					// hit box is inside the player
-					if(((int)(y) <= tileTopY && ((int)(y) + height) >= tileBottomY)){
-						if(((int)(x) + width) <= tileRightX && ((int)(x) + width) >= tileLeftX){
-							hitRight = true;
-						}
-						if((int)(x) <= tileRightX && (int)(x) >= tileLeftX){
-							hitLeft = true;
-						}
-					}
-		 						
-					// hit top collision
-						}else if((int)(y) <= tileBottomY && (int)(y) >= tileTopY){
-							if(((int)(x) + width) <= tileRightX && ((int)(x) + width) >= tileLeftX){
-								hitAbove = true;
-								System.out.println("gat ya right above");
-							}
-							if((int)(x) <= tileRightX && (int)(x) >= tileLeftX){
-								hitAbove = true;
-								System.out.println("gat ya left above");
-							}
-					// System.out.println("thishappened atleast");
-					
-						
-						}
-						
-					if(((int)(y) <= tileTopY && (int)(y) >= tileBottomY) || ((int)(y) + height <= tileTopY && (int)(y) + height >= tileBottomY ||((int)(y) + height <= tileTopY && (int)(y) + height >= tileBottomY))){
-						if(((int)(x) + width) <= tileRightX && ((int)(x) + width) >= tileLeftX){
-							hitRight = true;
-						}
-						if((int)(x) <= tileRightX && (int)(x) >= tileLeftX){
-							hitLeft = true;
-						}
-					}
-			
-					if((int)(y) >= tileTopY && (int)(y) <= tileBottomY){
-					//hit right
-						if(((int)(x) + width) <= tileRightX && ((int)(x) + width) >= tileLeftX){
-							hitRight = true;
-						}else{
-						 	hitRight = false;
-						}
-					//hit left
-						if((int)(x) <= tileRightX && (int)(x) >= tileLeftX){
-							hitLeft = true;
-						}else{
-							hitLeft = false;
-						}
-					hitAbove = true;
-					
-					}if((int)(y) <= tileTopY && ((int)(y) + height) >= tileBottomY){
-					//hit right	
-						if(((int)(x) + width) <= tileRightX && ((int)(x) + width) >= tileLeftX){
-							hitRight = true;
-						}else{
-						 	hitRight = false;
-						}
-					//hit left
-						if((int)(x) <= tileRightX && (int)(x) >= tileLeftX){
-							hitLeft = true;
-						}else{
-							hitLeft = false;
-						}
-					}
-					// hit below
-					if(((int)(y) + height) <= tileBottomY && ((int)(y) + height) >= tileTopY){
-					//hit right	
-						if(((int)(x) + width) <= tileRightX && ((int)(x) + width) >= tileLeftX){
-							hitRight = true;
-						}else{
-							hitRight = false;
-						}
-						//hit left
-						if((int)(x) <= tileRightX && (int)(x) >= tileLeftX){
-							hitLeft = true;
-						}else{
-							hitLeft = false;
-						}	
-					hitBelow = true;
-					}else{
-						hitBelow = false;
-					}
-				}
-			}
-			*/	
-			//	System.out.println(hitLeft + "  " + hitRight + "  " + hitAbove + "  " + hitBelow);
+		*/
 	}
 
 	
