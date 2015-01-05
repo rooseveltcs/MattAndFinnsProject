@@ -35,28 +35,18 @@ public class Player extends Character {
 		double fallSpeed = thisJumpHeight / 60;
 		thisJumpHeight++;		
 		// (!hitAbove) && thisJumpHeight == 0
+		// after first jump, the hit below boolean is never reset
 		if(jumping){
 			y = (float) y -  (float)(jumpSpeed * (.35 - fallSpeed) * delta);
 		}
 		if(hitBelow){
+			System.out.println("SKDHFSDKFSAKDJFHLSKDJHFLASKJDFHLSKJDHFALKJDFHLSKDJFHLAKJSDFHLSKDJFLSKDJFHLAKDJHFLAKSDJFH");
 		 	thisJumpHeight = 0.0;
 		 	setJumping(false);
 		}
-		/*
-		double jumpSpeed = 2;
-		thisJumpHeight++;		
-		// fix this  when actual collision works
-		if(hitBelow || thisJumpHeight == 0){
-			y = (float) y -  (float)(jumpSpeed * (.35 - thisJumpHeight / 60) * delta);
-		}else{
-			thisJumpHeight = 0;
-			setJumping(false);
-		*/
 	}
 		
 	public void colliding(){	
-		// problem with top tile, prob because the character can get stuck in two tiles at once.
-		
 		// height 46
 		// width 29
 		
