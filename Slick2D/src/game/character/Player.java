@@ -37,9 +37,10 @@ public class Player extends Character {
 		// (!hitAbove) && thisJumpHeight == 0
 		if(jumping){
 			y = (float) y -  (float)(jumpSpeed * (.35 - fallSpeed) * delta);
-		}else if(hitBelow){
-			thisJumpHeight = 0.0;
-			setJumping(false);
+		}
+		if(hitBelow){
+		 	thisJumpHeight = 0.0;
+		 	setJumping(false);
 		}
 		/*
 		double jumpSpeed = 2;
