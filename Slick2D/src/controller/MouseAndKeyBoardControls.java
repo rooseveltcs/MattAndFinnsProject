@@ -18,6 +18,7 @@ public class MouseAndKeyBoardControls {
 		}if(i.isKeyDown(Input.KEY_RIGHT)){
 			controlledPlayer.moveLeft(delta);
 		}if(i.isKeyDown(Input.KEY_UP)){
+			controlledPlayer.hitBelow = false;
 			controlledPlayer.setJumping(true);
 		}else if(i.isKeyDown(Input.KEY_ESCAPE)){
 			SlickGame.Game.enterState(0);

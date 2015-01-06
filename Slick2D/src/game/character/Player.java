@@ -16,7 +16,7 @@ public class Player extends Character {
 	protected boolean hitLeft;
 	protected boolean hitRight;
 	protected boolean hitAbove;
-	protected boolean hitBelow;
+	public boolean hitBelow;
 	protected int row;
 	protected int col;
 	
@@ -34,8 +34,7 @@ public class Player extends Character {
 		double jumpSpeed = 2;
 		double fallSpeed = thisJumpHeight / 60;
 		thisJumpHeight++;		
-		// (!hitAbove) && thisJumpHeight == 0
-		// after first jump, the hit below boolean is never reset
+		
 		if(jumping){
 			y = (float) y -  (float)(jumpSpeed * (.35 - fallSpeed) * delta);
 		}
@@ -76,12 +75,14 @@ public class Player extends Character {
 		// MIDDLE COLUMN
 		//  2 X 1
 		if(tileArray[(int)(((x - (x%32)))/32)][(int)(((y - (y%32)) - 32)/32)] instanceof SolidTile){
-			// this hits on the top left most tile, should only hit on top middle
 			hitAbove = true;
 		}
 		//  2 X 4
 		if(tileArray[(int)(((x - (x%32)))/32)][(int)(((y - (y%32)) + (32 * 2))/32)] instanceof SolidTile){
 			hitBelow = true;
+			if(!jumping){	
+				y = y - (y % 32) + 16;
+			}
 		}
 		
 		// FAR LEFT COLUMN
@@ -106,7 +107,6 @@ public class Player extends Character {
 		}
 		*/
 	}
-
 	
 	public void setJumping(boolean Jumped){
 		jumping = Jumped;
