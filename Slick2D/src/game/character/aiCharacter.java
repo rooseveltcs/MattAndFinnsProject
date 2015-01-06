@@ -6,16 +6,18 @@ import java.lang.Math;
 import javax.swing.Timer;
 import org.newdawn.slick.SlickException;
 
+//seems as though timers aren't being initialized, or are just not working.
+
 public class aiCharacter extends Character  {
 	//true is right, false is left.
 	protected boolean direction = true;
 	public boolean isMoving = false;
-	protected int inertia = 65;
-	int pause = 5000;
+	protected int inertia = 80;
+	//int pause = 5000;
 	public aiCharacter(float x, float y) throws SlickException {
 		super(x, y);
-		new Timer(pause, checkmove).start();
-		new Timer(pause-3000, checkdirection).start();
+		//new Timer(pause, checkmove).start();
+		//new Timer(pause-3000, checkdirection).start();
 	
 		
 	}
@@ -29,7 +31,7 @@ public class aiCharacter extends Character  {
 		 }
 	}
 	
-    public boolean movering() {
+    public boolean changeMove() {
     	
     	int changeMove = (int) (100*Math.random());
     	if (changeMove >= inertia){
@@ -44,7 +46,7 @@ public class aiCharacter extends Character  {
     		direction = !direction;
     	}
     }
-    ActionListener checkmove = new ActionListener() {
+    /*ActionListener checkmove = new ActionListener() {
         public void actionPerformed(ActionEvent evt) {
             movering();
         }
@@ -53,5 +55,5 @@ public class aiCharacter extends Character  {
         public void actionPerformed(ActionEvent evt) {
             movering();
         }
-    };
+    };*/
 }
