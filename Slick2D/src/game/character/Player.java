@@ -40,7 +40,6 @@ public class Player extends Character {
 			y = (float) y -  (float)(jumpSpeed * (.35 - fallSpeed) * delta);
 		}
 		if(hitBelow){
-			System.out.println("SKDHFSDKFSAKDJFHLSKDJHFLASKJDFHLSKJDHFALKJDFHLSKDJFHLAKJSDFHLSKDJFLSKDJFHLAKDJHFLAKSDJFH");
 		 	thisJumpHeight = 0.0;
 		 	setJumping(false);
 		}
