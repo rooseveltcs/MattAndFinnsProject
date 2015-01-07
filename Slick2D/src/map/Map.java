@@ -3,6 +3,7 @@ package map;
 import game.character.Character;
 import game.character.JarBro;
 import game.character.Player;
+import game.character.aiCharacter;
 
 import java.util.ArrayList;
 
@@ -87,12 +88,18 @@ public class Map extends BasicGameState {
     	if(player.isJumping()){
     		player.jump(delta);
     	}
-    	if(!jarbro1.isMoving){
-    		jarbro1.isMoving = jarbro1.movering();
-    	}else{
-    		jarbro1.move(delta);
+    	
+    	for(int i = 0; i <= characters.size(); i++){
+    		aiCharacter s = null;
+			if(s instanceof aiCharacter){
+				s = (aiCharacter) characters.get(i);
+    			if(!s.isMoving){
+    				s.changeMove();
+    			}else{
+    				s.move(delta);
+    			}
+    		}
     	}
-    
     	playerControls.handleInput(container.getInput(), delta);
     	player.colliding();
     }
