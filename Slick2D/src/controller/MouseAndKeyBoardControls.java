@@ -11,7 +11,7 @@ public class MouseAndKeyBoardControls {
 		controlledPlayer = player;
 		// map.Map.this.getTiles();
 	}
-	// test
+
 	public void handleInput(Input i, int delta){
 		if(i.isKeyDown(Input.KEY_LEFT)){
 			controlledPlayer.moveRight(delta);

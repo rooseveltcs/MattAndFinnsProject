@@ -13,9 +13,9 @@ public class Player extends Character {
 	protected Tile[][] tileArray;
 	// The collision method and booleans should go in character when finished
 	// Where the player's sprite collided
-	protected boolean hitLeft;
-	protected boolean hitRight;
-	protected boolean hitAbove;
+	public boolean hitLeft;
+	public boolean hitRight;
+	public boolean hitAbove;
 	public boolean hitBelow;
 	protected int row;
 	protected int col;
@@ -31,10 +31,12 @@ public class Player extends Character {
 	}	
 	
 	public void jump(int delta){
+		// set max speed so that u dont fall through the floor
 		double jumpSpeed = 2;
 		double fallSpeed = thisJumpHeight / 60;
 		thisJumpHeight++;		
-		
+		System.out.println(thisJumpHeight);
+		System.out.println(hitBelow);
 		if(jumping){
 			y = (float) y -  (float)(jumpSpeed * (.35 - fallSpeed) * delta);
 		}
@@ -81,7 +83,7 @@ public class Player extends Character {
 		if(tileArray[(int)(((x - (x%32)))/32)][(int)(((y - (y%32)) + (32 * 2))/32)] instanceof SolidTile){
 			hitBelow = true;
 			if(!jumping){	
-				y = y - (y % 32) + 16;
+				y = y - (y % 32) + 17;
 			}
 		}
 		
@@ -120,14 +122,14 @@ public class Player extends Character {
     	if(!hitLeft){
     		x = x - (.25f * delta);
     	}
-    	hitRight = false;
+    // hitRight = false;
     }	
     //move right	
     public void moveLeft(int delta){
     	if(!hitRight){
     		x = x + (.25f * delta);
     	}
-    	hitLeft = false;
-    }   
+    // hitLeft = false;
+    } 
 }
 
