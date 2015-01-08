@@ -30,13 +30,17 @@ public class Player extends Character {
 		col = tileArray[0].length;	
 	}	
 	
+	public void rangedAttack(){
+		
+	}
+	
 	public void jump(int delta){
 		// set max speed so that u dont fall through the floor
 		double jumpSpeed = 2;
 		double fallSpeed = thisJumpHeight / 60;
-		thisJumpHeight++;		
-		System.out.println(thisJumpHeight);
-		System.out.println(hitBelow);
+		if(thisJumpHeight < 50){
+			thisJumpHeight++;		
+		}
 		if(jumping){
 			y = (float) y -  (float)(jumpSpeed * (.35 - fallSpeed) * delta);
 		}
@@ -46,7 +50,7 @@ public class Player extends Character {
 		}
 	}
 		
-	public void colliding(){	
+	public void colliding() throws java.lang.ArrayIndexOutOfBoundsException{	
 		// height 46
 		// width 29
 		
@@ -60,12 +64,13 @@ public class Player extends Character {
 		}
 		*/
 		//  3 x 3
+		//  3 x 2
 		if(tileArray[(int)(((x - (x%32)) + 32)/32)][(int)(((y - (y%32)) + 32)/32)] instanceof SolidTile){
 			hitRight = true;
-		}
-		//  3 x 2
-		if(tileArray[(int)(((x - (x%32)) + 32)/32)][(int)(((y - (y%32)))/32)] instanceof SolidTile){
+		}else if(tileArray[(int)(((x - (x%32)) + 32)/32)][(int)(((y - (y%32)))/32)] instanceof SolidTile){
 			hitRight = true;
+		}else{
+			hitRight = false;
 		}
 		//  3 x 1
 		/*
@@ -95,12 +100,13 @@ public class Player extends Character {
 		}
 		*/
 		//  1 x 2
+		//  1 x 3
 		if(tileArray[(int)(((x - (x%32)))/32)][(int)(((y - (y%32)))/32)] instanceof SolidTile){
 			hitLeft = true;
-		}
-		//  1 x 3
-		if(tileArray[(int)(((x - (x%32)))/32)][(int)(((y - (y%32)) + 32)/32)] instanceof SolidTile){
+		}else if(tileArray[(int)(((x - (x%32)))/32)][(int)(((y - (y%32)) + 32)/32)] instanceof SolidTile){
 			hitLeft = true;
+		}else{
+			hitLeft = false;
 		}
 		//  1 x 4
 		/*
@@ -122,14 +128,12 @@ public class Player extends Character {
     	if(!hitLeft){
     		x = x - (.25f * delta);
     	}
-    // hitRight = false;
     }	
     //move right	
     public void moveLeft(int delta){
     	if(!hitRight){
     		x = x + (.25f * delta);
     	}
-    // hitLeft = false;
     } 
 }
 
