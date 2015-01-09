@@ -16,27 +16,32 @@ public class StartScreen extends BasicGameState implements KeyListener{
 	
 	private Image frame; 
 	private Image pointer; 
-	private int menuX = 422;
+	private int menuX = 420;
 	private int menuY = 210;
 	private int menuSpacing = 75;
-	private String optionOne =  "Enter ->   Start Game";
-	private String optionTwo =  "Tab ->  What shld this do?";
-	private String optionThree ="Quit ->      Quit";
+	private String optionOne =  "	   Start Game";
+	private String optionTwo =  "What shld this do?";
+	private String optionThree ="	      Quit";
+	private int optionNumb =  1;
 	
 	// change this so it fits level size
 	public StartScreen(String Name){
 		// System.out.println(Name);
 	}
+	
 	@Override
 	public void render(GameContainer gc, StateBasedGame arg1, Graphics g)
 			throws SlickException {
-			
 			frame.draw();
 			g.setColor(Color.blue);
 			g.drawString(optionOne, menuX, menuY);
-			// score? maybe options? setting?
 			g.drawString(optionTwo, menuX, menuY + menuSpacing);
 			g.drawString(optionThree, menuX, menuY + (2 * menuSpacing));
+			
+			g.setColor(Color.magenta);
+			if(optionNumb == 1){
+			}
+			
 		}
 
 	@Override
@@ -62,14 +67,15 @@ public class StartScreen extends BasicGameState implements KeyListener{
 	@Override
 	public void keyPressed(int key, char c) {
 		if(key == Input.KEY_ENTER){
+			System.out.println("enter");
 			SlickGame.Game.enterState(1);
 			// goes to the map
 		}else if(key == Input.KEY_ESCAPE){
 			System.exit(0);
-		}else if(key == Input.KEY_TAB){
-			// not sure what this will do yet
-		}else{
-			// nothing happens...
+		}else if(key == Input.KEY_DOWN){
+			optionNumb--;
+		}else if(key == Input.KEY_UP){
+			optionNumb++;
 		}
 	}
 	@Override
