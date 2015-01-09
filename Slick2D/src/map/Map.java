@@ -28,7 +28,8 @@ public class Map extends BasicGameState {
     private ArrayList<Character> characters;
     private Player player; 
     private String levelName;
-    private JarBro jarbro1; 
+    private JarBro jarbro1;
+    private aiCharacter placeHolder;
     // this is here to receive input.
     public  MouseAndKeyBoardControls playerControls;
     protected TiledMap map;
@@ -88,10 +89,10 @@ public class Map extends BasicGameState {
     	if(player.isJumping()){
     		player.jump(delta);
     	}
-    	
-    	for(int i = 0; i <= characters.size(); i++){
-    		aiCharacter s = null;
-			if(s instanceof aiCharacter){
+    	aiCharacter s = placeHolder;
+    	for(int i = 0; i < characters.size(); i++){
+			//This crashes when starting the game from the start menu. No clue why. -M
+    	if(characters.get(i) instanceof aiCharacter){
 				s = (aiCharacter) characters.get(i);
     			if(!s.isMoving){
     				s.changeMove();
