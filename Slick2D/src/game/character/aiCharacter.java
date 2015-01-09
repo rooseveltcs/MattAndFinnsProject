@@ -10,10 +10,11 @@ import org.newdawn.slick.SlickException;
 
 public class aiCharacter extends Character  {
 	//true is right, false is left.
-	protected boolean direction = true;
-	public boolean isMoving = false;
-	protected int inertia = 80;
+	protected boolean direction = false;
+	public boolean isMoving = true;
+	protected int inertia = 20;
 	//int pause = 5000;
+	public int timer = 0;
 	public aiCharacter(float x, float y) throws SlickException {
 		super(x, y);
 		//new Timer(pause, checkmove).start();
@@ -21,13 +22,18 @@ public class aiCharacter extends Character  {
 	
 		
 	}
-	public void move(int delta) {
-		 if (isMoving){
+	public void move(int delta) { 
+		if (isMoving){
+			timer++;
 			 if(direction){
 				 x = x - (.25f * delta);
 			 }else{
 				 x = x + (.25f * delta);
 			 }
+		 }
+		 if(timer == 25){
+			 changeMove();
+			 timer = 0;
 		 }
 	}
 	
