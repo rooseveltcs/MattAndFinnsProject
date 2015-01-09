@@ -90,16 +90,16 @@ public class Map extends BasicGameState {
     		player.jump(delta);
     	}
     	aiCharacter s = placeHolder;
-    	for(int i = 0; i <= characters.size(); i++){
+    	for(int i = 0; i < characters.size(); i++){
 			//This crashes when starting the game from the start menu. No clue why. -M
-    		//if(characters.get(i) instanceof aiCharacter){
-				//s = (aiCharacter) characters.get(i);
-    		//	if(!s.isMoving){
-    			//	s.changeMove();
-    			//}else{
-    				//s.move(delta);
-    		//	}
-    		//}
+    	if(characters.get(i) instanceof aiCharacter){
+				s = (aiCharacter) characters.get(i);
+    			if(!s.isMoving){
+    				s.changeMove();
+    			}else{
+    				s.move(delta);
+    			}
+    		}
     	}
     	playerControls.handleInput(container.getInput(), delta);
     	player.colliding();
