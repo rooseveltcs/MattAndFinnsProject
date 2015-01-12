@@ -1,5 +1,5 @@
 package game.character;
-//test
+
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import slickgame.SlickGame;

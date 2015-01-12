@@ -33,15 +33,31 @@ public class StartScreen extends BasicGameState implements KeyListener{
 	public void render(GameContainer gc, StateBasedGame arg1, Graphics g)
 			throws SlickException {
 			frame.draw();
-			g.setColor(Color.blue);
-			g.drawString(optionOne, menuX, menuY);
-			g.drawString(optionTwo, menuX, menuY + menuSpacing);
-			g.drawString(optionThree, menuX, menuY + (2 * menuSpacing));
+
 			
-			g.setColor(Color.magenta);
 			if(optionNumb == 1){
+				g.setColor(Color.magenta);
+				g.drawString(optionOne, menuX, menuY);
+			}else{
+				g.setColor(Color.blue);
+				g.drawString(optionOne, menuX, menuY);
 			}
 			
+			if(optionNumb == 2){
+				g.setColor(Color.magenta);
+				g.drawString(optionTwo, menuX, menuY + menuSpacing);
+			}else{
+				g.setColor(Color.blue);
+				g.drawString(optionTwo, menuX, menuY + menuSpacing);
+			}
+				
+			if(optionNumb == 3){
+				g.setColor(Color.magenta);
+				g.drawString(optionThree, menuX, menuY + (2 * menuSpacing));
+			}else{
+				g.setColor(Color.blue);
+				g.drawString(optionThree, menuX, menuY + (2 * menuSpacing));
+			}
 		}
 
 	@Override
@@ -67,15 +83,20 @@ public class StartScreen extends BasicGameState implements KeyListener{
 	@Override
 	public void keyPressed(int key, char c) {
 		if(key == Input.KEY_ENTER){
-			System.out.println("enter");
-			SlickGame.Game.enterState(1);
+			if(optionNumb == 1){
+				SlickGame.Game.enterState(1);
 			// goes to the map
+			}else if(optionNumb == 2){
+				System.out.println("credits page?");
+			}else if(optionNumb == 3){
+				System.exit(0);
+			}
 		}else if(key == Input.KEY_ESCAPE){
 			System.exit(0);
-		}else if(key == Input.KEY_DOWN){
-			optionNumb--;
-		}else if(key == Input.KEY_UP){
+		}else if(key == Input.KEY_DOWN && optionNumb < 3){
 			optionNumb++;
+		}else if(key == Input.KEY_UP && optionNumb > 1){
+			optionNumb--;
 		}
 	}
 	@Override
