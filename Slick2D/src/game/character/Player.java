@@ -24,7 +24,8 @@ public class Player extends Character {
 		super(x,y);
 		sprite = new Image("testdata/wizardlady.png");
 		height = sprite.getHeight();
-        width = sprite.getWidth();
+        width = sprite.getWidth() + 3;
+        System.out.println(width);
 		tileArray = SlickGame.Game.level1.getTiles();
 		row = tileArray.length;
 		col = tileArray[0].length;	
@@ -85,10 +86,17 @@ public class Player extends Character {
 			hitAbove = true;
 		}
 		//  2 X 4
-		if(tileArray[(int)(((x - (x%32)))/32)][(int)(((y - (y%32)) + (32 * 2))/32)] instanceof SolidTile){
-			hitBelow = true;
-			if(!jumping){	
-				y = y - (y % 32) + 17;
+		int blockCheckX; 
+		if(hitLeft){
+			blockCheckX = (int)(((x - (x%32)))/32) + 1;
+		}else if(hitRight){
+			blockCheckX = (int)(((x - (x%32)))/32);
+		}else{
+			if(tileArray[(int)(((x - (x%32)))/32)][(int)(((y - (y%32)) + (32 * 2))/32)] instanceof SolidTile || tileArray[(int)(((x - (x%32)))/32) + 1][(int)(((y - (y%32)) + (32 * 2))/32)] instanceof SolidTile){
+				hitBelow = true;
+				if(!jumping){	
+					y = y - (y % 32) + 17;
+				}
 			}
 		}
 		
