@@ -70,6 +70,11 @@
     <property name="tileType" value="air"/>
    </properties>
   </tile>
+  <tile id="97">
+   <properties>
+    <property name="tileType" value="solid"/>
+   </properties>
+  </tile>
  </tileset>
  <layer name="background" width="100" height="16" visible="0">
   <data encoding="base64" compression="gzip">
@@ -78,7 +83,7 @@
  </layer>
  <layer name="CollisionLayer" width="100" height="16">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+2WPQ6AIAxGMQ7GQR3U0zg6OJhwB+5/CevWEBHwh1YpyUvqR0Lwe4MapVQJGIGUAs01g/vkTiU+WCE+eCE+eCE+7jFbz8tBJj7ofLiyP/hYENR3ycXHFzr/m4/Yzo8Wde9nPuz38vmYPTzhI6bzkEXdc4yPkCx0H+/phJ1T90jp4wztmHPkyrfsif/d9aIPxaCzUBqgBTpP9gapfHBkQuC8BwZg9GT2Ga7zUvrQ1izQsrvYAA7nbQIAGQAA
+   H4sIAAAAAAAAC+2WMQqEMBBFIxayhW7hehpLCwshd3Dvf4idBYshGJOomz+rE3gw/kCI/xU6G2NK4q1AKYh54cFmBUOlPkShPmShPmShPo4xOM/jSqY+cD582RV8jAz0Xe7i4x86v5qP1M7XFrr3LR/ue4V8DAHO8JHSecxC95ziIyaL3ed7NmPn6B6RPrawnvmO7PmWnfG/O+30YQR0FktNNMQzkP2CXD4k0jN43hIvogtk7hm+83L6sM6sYPm6+ACOJwbrABkAAA==
   </data>
  </layer>
  <layer name="fluff" width="100" height="16" visible="0">
