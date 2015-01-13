@@ -12,6 +12,7 @@ public class Player extends Character {
 	protected boolean jumping = false;
 	protected boolean falling = false;
 	protected Tile[][] tileArray;
+	protected double jumpSpeed = 2;
 	// The collision method and booleans should go in character when finished
 	// Where the player's sprite collided
 	public boolean hitLeft;
@@ -37,7 +38,6 @@ public class Player extends Character {
 	}
 	
 	public void jump(int delta){
-		double jumpSpeed = 2;
 		double fallSpeed = thisJumpHeight / 60;
 		// set max speed so that u dont fall through the floor	
 		if(thisJumpHeight < 50){
@@ -53,15 +53,16 @@ public class Player extends Character {
 	}
 	
 	public void fall(int delta){
-		double jumpSpeed = 2;
 		double fallSpeed = thisJumpHeight / 60;	
 		if(!hitBelow){
 			if(thisJumpHeight < 50){
 				thisJumpHeight++;
 			}
-			y = (float) y -  (float)(jumpSpeed * (.35 - fallSpeed + (22/60)) * delta);	
+			y = (float) y -  (float)(jumpSpeed * (.35 - (fallSpeed + (.5))) * delta);	
+		}else{
+			thisJumpHeight = 0.0;
+			falling = false;
 		}
-		
 	}
 	public void colliding() {	
 		// height 46
@@ -112,14 +113,15 @@ public class Player extends Character {
 					y = y - (y % 32) + 17;
 				}
 			}
-		}else{
-			if(tileArray[(int)(((x - (x%32)))/32)][(int)(((y - (y%32)) + (32 * 2))/32)] instanceof SolidTile || tileArray[(int)(((x - (x%32)))/32) + 1][(int)(((y - (y%32)) + (32 * 2))/32)] instanceof SolidTile){
-				hitBelow = true;
-				if(!jumping){	
-					y = y - (y % 32) + 17;
-				}
+		}else if(tileArray[(int)(((x - (x%32)))/32)][(int)(((y - (y%32)) + (32 * 2))/32)] instanceof SolidTile || tileArray[(int)(((x - (x%32)))/32) + 1][(int)(((y - (y%32)) + (32 * 2))/32)] instanceof SolidTile){
+			hitBelow = true;
+			if(!jumping){	
+				y = y - (y % 32) + 17;
 			}
-		}	
+		}else{
+			hitBelow = false;
+		}
+			
 	
 		// FAR LEFT COLUMN
 		//  1 x 1
@@ -143,6 +145,9 @@ public class Player extends Character {
 			hitLeft = true;
 		}
 		*/
+	}
+	public boolean isFalling(){
+		return hitBelow;
 	}
 	
 	public void setJumping(boolean Jumped){

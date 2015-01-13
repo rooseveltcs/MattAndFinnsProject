@@ -4,9 +4,7 @@ import game.character.Character;
 import game.character.JarBro;
 import game.character.Player;
 import game.character.aiCharacter;
-
 import java.util.ArrayList;
-
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
@@ -15,7 +13,6 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.tiled.TiledMap;
-
 import tiles.AirTile;
 import tiles.SolidTile;
 import tiles.Tile;
@@ -100,6 +97,9 @@ public class Map extends BasicGameState {
 	public void update(GameContainer container, StateBasedGame sbg, int delta) throws SlickException {
 		if(player.isJumping()){
 			player.jump(delta);
+		}
+		if(!player.isFalling() && !player.isJumping()){
+			player.fall(delta);
 		}
 		aiCharacter s = placeHolder;
 		for(int i = 0; i < characters.size(); i++){
