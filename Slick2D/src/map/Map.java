@@ -29,6 +29,10 @@ public class Map extends BasicGameState {
 	private Player player; 
 	private String levelName;
 	private JarBro jarbro1;
+	private JarBro jarbro2;
+	private JarBro jarbro3;
+	private JarBro jarbro4;
+	private JarBro jarbro5;
 	private aiCharacter placeHolder;
 	// this is here to receive input.
 	public  MouseAndKeyBoardControls playerControls;
@@ -50,7 +54,15 @@ public class Map extends BasicGameState {
 		backgroundMusic = new Music("testdata/Music/jasonMusic.ogg");
 		backgroundMusic.loop();
 		jarbro1 = new JarBro(400, 400);
+		jarbro2 = new JarBro(350, 400);
+		jarbro3 = new JarBro(300, 400);
+		jarbro4 = new JarBro(370, 400);
+		jarbro5 = new JarBro(420, 400);
 		addCharacter(jarbro1);
+		addCharacter(jarbro2);
+		addCharacter(jarbro3);
+		addCharacter(jarbro4);
+		addCharacter(jarbro5);
 		player = new Player(128,400);
 		addCharacter(player);
 		playerControls = new MouseAndKeyBoardControls(player); 
