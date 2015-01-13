@@ -10,6 +10,7 @@ import tiles.Tile;
 public class Player extends Character {
 	protected double thisJumpHeight = 0.0;
 	protected boolean jumping = false;
+	protected boolean falling = false;
 	protected Tile[][] tileArray;
 	// The collision method and booleans should go in character when finished
 	// Where the player's sprite collided
@@ -36,9 +37,9 @@ public class Player extends Character {
 	}
 	
 	public void jump(int delta){
-		// set max speed so that u dont fall through the floor
 		double jumpSpeed = 2;
 		double fallSpeed = thisJumpHeight / 60;
+		// set max speed so that u dont fall through the floor	
 		if(thisJumpHeight < 50){
 			thisJumpHeight++;		
 		}
@@ -50,8 +51,19 @@ public class Player extends Character {
 		 	setJumping(false);
 		}
 	}
+	
+	public void fall(int delta){
+		double jumpSpeed = 2;
+		double fallSpeed = thisJumpHeight / 60;	
+		if(!hitBelow){
+			if(thisJumpHeight < 50){
+				thisJumpHeight++;
+			}
+			y = (float) y -  (float)(jumpSpeed * (.35 - fallSpeed + (22/60)) * delta);	
+		}
 		
-	public void colliding() throws java.lang.ArrayIndexOutOfBoundsException{	
+	}
+	public void colliding() {	
 		// height 46
 		// width 29
 		
@@ -86,11 +98,20 @@ public class Player extends Character {
 			hitAbove = true;
 		}
 		//  2 X 4
-		int tileCheckX; 
 		if(hitLeft){
-			tileCheckX = (int)(((x - (x%32)))/32) + 1;
+			if(tileArray[(int)(((x - (x%32)))/32) + 1][(int)(((y - (y%32)) + (32 * 2))/32)] instanceof SolidTile){
+				hitBelow = true;
+				if(!jumping){	
+					y = y - (y % 32) + 17;
+				}
+			}
 		}else if(hitRight){
-			tileCheckX = (int)(((x - (x%32)))/32);
+			if(tileArray[(int)(((x - (x%32)))/32)][(int)(((y - (y%32)) + (32 * 2))/32)] instanceof SolidTile){
+				hitBelow = true;
+				if(!jumping){	
+					y = y - (y % 32) + 17;
+				}
+			}
 		}else{
 			if(tileArray[(int)(((x - (x%32)))/32)][(int)(((y - (y%32)) + (32 * 2))/32)] instanceof SolidTile || tileArray[(int)(((x - (x%32)))/32) + 1][(int)(((y - (y%32)) + (32 * 2))/32)] instanceof SolidTile){
 				hitBelow = true;
@@ -98,8 +119,8 @@ public class Player extends Character {
 					y = y - (y % 32) + 17;
 				}
 			}
-		}
-		
+		}	
+	
 		// FAR LEFT COLUMN
 		//  1 x 1
 		/*
