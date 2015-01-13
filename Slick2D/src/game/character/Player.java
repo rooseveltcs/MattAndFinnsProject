@@ -86,11 +86,11 @@ public class Player extends Character {
 			hitAbove = true;
 		}
 		//  2 X 4
-		int blockCheckX; 
+		int tileCheckX; 
 		if(hitLeft){
-			blockCheckX = (int)(((x - (x%32)))/32) + 1;
+			tileCheckX = (int)(((x - (x%32)))/32) + 1;
 		}else if(hitRight){
-			blockCheckX = (int)(((x - (x%32)))/32);
+			tileCheckX = (int)(((x - (x%32)))/32);
 		}else{
 			if(tileArray[(int)(((x - (x%32)))/32)][(int)(((y - (y%32)) + (32 * 2))/32)] instanceof SolidTile || tileArray[(int)(((x - (x%32)))/32) + 1][(int)(((y - (y%32)) + (32 * 2))/32)] instanceof SolidTile){
 				hitBelow = true;
