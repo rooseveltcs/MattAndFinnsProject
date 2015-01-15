@@ -99,7 +99,8 @@ public class Map extends BasicGameState {
 			player.jump(delta);
 		}
 		if(!player.isFalling() && !player.isJumping()){
-			player.fall(delta);
+		// .5 is a fallspeed that looks and feels nice	
+			player.fall(delta, 0.5);
 		}
 		aiCharacter s = placeHolder;
 		for(int i = 0; i < characters.size(); i++){

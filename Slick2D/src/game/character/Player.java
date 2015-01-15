@@ -49,13 +49,13 @@ public class Player extends Character {
 		}
 	}
 	
-	public void fall(int delta){
+	public void fall(int delta, double fallspeed){
 		double fallSpeed = thisJumpHeight / 60;	
 		if(!hitBelow){
 			if(thisJumpHeight < 50){
 				thisJumpHeight++;
 			}
-			y = (float) y -  (float)(jumpSpeed * (.35 - (fallSpeed + (.5))) * delta);	
+			y = (float) y -  (float)(jumpSpeed * (.35 - (fallSpeed + (fallspeed))) * delta);	
 		}else{
 			thisJumpHeight = 0.0;
 			falling = false;
