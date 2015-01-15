@@ -9,16 +9,15 @@ import tiles.Tile;
 
 public class Player extends Character {
 	protected double thisJumpHeight = 0.0;
-	protected boolean jumping = false;
 	protected boolean falling = false;
-	protected Tile[][] tileArray;
 	protected double jumpSpeed = 2;
-	// The collision method and booleans should go in character when finished
 	// Where the player's sprite collided
+	/*
 	public boolean hitLeft;
 	public boolean hitRight;
 	public boolean hitAbove;
 	public boolean hitBelow;
+	*/
 	protected int row;
 	protected int col;
 	
@@ -27,8 +26,6 @@ public class Player extends Character {
 		sprite = new Image("testdata/wizardlady.png");
 		height = sprite.getHeight();
         width = sprite.getWidth() + 3;
-        System.out.println(width);
-		tileArray = SlickGame.Game.level1.getTiles();
 		row = tileArray.length;
 		col = tileArray[0].length;	
 	}	
@@ -64,6 +61,7 @@ public class Player extends Character {
 			falling = false;
 		}
 	}
+	/*
 	public void colliding() {	
 		// height 46
 		// width 29
@@ -71,12 +69,7 @@ public class Player extends Character {
 		//  3 X 4 grid surrounding the character
 		
 		// FAR RIGHT COLUMN
-		//  3 x 4
-		/*
-		if(tileArray[(int)(((x - (x%32)) + 32)/32)][(int)(((y - (y%32)) + (32 * 2))/32)] instanceof SolidTile){
-			hitRight = true;
-		}
-		*/
+
 		//  3 x 3
 		//  3 x 2
 		if(tileArray[(int)(((x - (x%32)) + 32)/32)][(int)(((y - (y%32)) + 32)/32)] instanceof SolidTile){
@@ -86,12 +79,6 @@ public class Player extends Character {
 		}else{
 			hitRight = false;
 		}
-		//  3 x 1
-		/*
-		if(tileArray[(int)(((x - (x%32)) + 32)/32)][(int)(((y - (y%32)) - 32)/32)] instanceof SolidTile){
-			hitRight = true;
-		}
-		*/
 		
 		// MIDDLE COLUMN
 		//  2 X 1
@@ -124,12 +111,7 @@ public class Player extends Character {
 			
 	
 		// FAR LEFT COLUMN
-		//  1 x 1
-		/*
-		if(tileArray[(int)(((x - (x%32)))/32)][(int)(((y - (y%32)) - 32)/32)] instanceof SolidTile){
-			hitLeft = true;
-		}
-		*/
+	
 		//  1 x 2
 		//  1 x 3
 		if(tileArray[(int)(((x - (x%32)))/32)][(int)(((y - (y%32)))/32)] instanceof SolidTile){
@@ -139,13 +121,8 @@ public class Player extends Character {
 		}else{
 			hitLeft = false;
 		}
-		//  1 x 4
-		/*
-		if(tileArray[(int)(((x - (x%32)))/32)][(int)(((y - (y%32)) + (32 * 2))/32)] instanceof SolidTile){
-			hitLeft = true;
-		}
-		*/
 	}
+	*/
 	public boolean isFalling(){
 		return hitBelow;
 	}
