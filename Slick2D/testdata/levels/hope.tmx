@@ -83,7 +83,7 @@
  </layer>
  <layer name="CollisionLayer" width="100" height="16">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+2WQQqDMBBFR7ooXbRdVE/j0oWLgnfQ+x/CEVwMwZhEbf5UJ/Bg/IEQ/1toT0Q3ZjCgFEw/8xCzgeFuPlRhPnRhPnRhPvbROM/tQmY+cD582Rl8tAL0Xa7i4x86P5uP1M6XFrr3NR/ue4V8NAGO8JHSecxC95ziIyaL3Zd7XcbO0T0ifazReeYrsuVbdsT/7nejD1LQWSxP5sW8A9kvyOVDI7VA5h+mZKpA5p7hOy+nDxKzgWdyMQLF7ocYABkAAA==
+   H4sIAAAAAAAAC+2WMQrDMAxFVTqUDG2GNKfpmCFDIXdI7n+IqNBBhFqyW9cyyTc8EDI29n8ePBPRmVmAKydmftOIGvhwgY9khkANH/AB4KM2NB/jj47gI6+PUG8PPkaB91mO4qPWzPfsIzXzT8PbgeZjey/Lx2CQw0dK5jHDO/MUH9q8tV6bmwpm7p2ppw+NKVAfkdj3lvu/+/zSB1WQWSxX5sa0Ru8flPJRIw+B7HfMnemN3naP0H4lfZCogT8vFytmd6LtABkAAA==
   </data>
  </layer>
  <layer name="fluff" width="100" height="16" visible="0">

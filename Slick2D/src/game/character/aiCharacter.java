@@ -16,12 +16,19 @@ public class aiCharacter extends Character  {
 	
 	public void move(int delta) { 
 		if (isMoving){
-			if(direction){
-				x = x + (.15f * delta);
-			}else{
+			}if(hitLeft || hitRight){
+				direction = !direction;
+				wantToChange = -20;
+				if(hitRight){
+					x -= 25;
+				}else if(hitLeft){
+					x += 25;
+				}
+			}else if(direction && (!hitLeft)){
+					x = x + (.15f * delta);
+			}else if(!hitRight){
 				x = x - (.15f * delta);
 			}
-		}
 		int maybeDirection = (int) (100*Math.random());
 		if (maybeDirection >= (inertia/2)) {
 			changeDirection();

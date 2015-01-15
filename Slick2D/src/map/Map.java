@@ -114,7 +114,9 @@ public class Map extends BasicGameState {
 			}
 		}
 		playerControls.handleInput(container.getInput(), delta);
-		player.colliding();
+		for(int z = 0; z < characters.size(); z++){
+			characters.get(z).colliding();
+		}
 	}
 
 	public void render(GameContainer container, StateBasedGame sbg, Graphics g) throws SlickException {
