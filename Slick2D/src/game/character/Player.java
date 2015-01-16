@@ -47,6 +47,11 @@ public class Player extends Character {
 		 	thisJumpHeight = 0.0;
 		 	setJumping(false);
 		}
+		if(hitAbove){
+			System.out.println("hitabove");
+			setJumping(false);
+			falling = true;
+		}
 	}
 	
 	public void fall(int delta, double fallspeed){
@@ -61,68 +66,7 @@ public class Player extends Character {
 			falling = false;
 		}
 	}
-	/*
-	public void colliding() {	
-		// height 46
-		// width 29
-		
-		//  3 X 4 grid surrounding the character
-		
-		// FAR RIGHT COLUMN
 
-		//  3 x 3
-		//  3 x 2
-		if(tileArray[(int)(((x - (x%32)) + 32)/32)][(int)(((y - (y%32)) + 32)/32)] instanceof SolidTile){
-			hitRight = true;
-		}else if(tileArray[(int)(((x - (x%32)) + 32)/32)][(int)(((y - (y%32)))/32)] instanceof SolidTile){
-			hitRight = true;
-		}else{
-			hitRight = false;
-		}
-		
-		// MIDDLE COLUMN
-		//  2 X 1
-		if(tileArray[(int)(((x - (x%32)))/32)][(int)(((y - (y%32)) - 32)/32)] instanceof SolidTile){
-			hitAbove = true;
-		}
-		//  2 X 4
-		if(hitLeft){
-			if(tileArray[(int)(((x - (x%32)))/32) + 1][(int)(((y - (y%32)) + (32 * 2))/32)] instanceof SolidTile){
-				hitBelow = true;
-				if(!jumping){	
-					y = y - (y % 32) + 17;
-				}
-			}
-		}else if(hitRight){
-			if(tileArray[(int)(((x - (x%32)))/32)][(int)(((y - (y%32)) + (32 * 2))/32)] instanceof SolidTile){
-				hitBelow = true;
-				if(!jumping){	
-					y = y - (y % 32) + 17;
-				}
-			}
-		}else if(tileArray[(int)(((x - (x%32)))/32)][(int)(((y - (y%32)) + (32 * 2))/32)] instanceof SolidTile || tileArray[(int)(((x - (x%32)))/32) + 1][(int)(((y - (y%32)) + (32 * 2))/32)] instanceof SolidTile){
-			hitBelow = true;
-			if(!jumping){	
-				y = y - (y % 32) + 17;
-			}
-		}else{
-			hitBelow = false;
-		}
-			
-	
-		// FAR LEFT COLUMN
-	
-		//  1 x 2
-		//  1 x 3
-		if(tileArray[(int)(((x - (x%32)))/32)][(int)(((y - (y%32)))/32)] instanceof SolidTile){
-			hitLeft = true;
-		}else if(tileArray[(int)(((x - (x%32)))/32)][(int)(((y - (y%32)) + 32)/32)] instanceof SolidTile){
-			hitLeft = true;
-		}else{
-			hitLeft = false;
-		}
-	}
-	*/
 	public boolean isFalling(){
 		return hitBelow;
 	}

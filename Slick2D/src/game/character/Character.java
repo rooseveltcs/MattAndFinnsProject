@@ -42,6 +42,10 @@ public abstract class Character {
     	sprite.draw(x - offset_x, y - offset_y);
     }
     
+    public int findBlockX(int modifier){
+    	return (int) (((x - (x%32)  + (32 * modifier)) / 32));
+    }
+    
     public void colliding() {	
 		// height 46
 		// width 29
@@ -57,9 +61,9 @@ public abstract class Character {
 		*/
 		//  3 x 3
 		//  3 x 2
-		if(tileArray[(int)(((x - (x%32)) + 32)/32)][(int)(((y - (y%32)) + 32)/32)] instanceof SolidTile){
+		if(tileArray[findBlockX(1)][(int)(((y - (y%32)) + 32)/32)] instanceof SolidTile){
 			hitRight = true;
-		}else if(tileArray[(int)(((x - (x%32)) + 32)/32)][(int)(((y - (y%32)))/32)] instanceof SolidTile){
+		}else if(tileArray[findBlockX(1)][(int)(((y - (y%32)))/32)] instanceof SolidTile){
 			hitRight = true;
 		}else{
 			hitRight = false;
@@ -73,8 +77,10 @@ public abstract class Character {
 		
 		// MIDDLE COLUMN
 		//  2 X 1
-		if(tileArray[(int)(((x - (x%32)))/32)][(int)(((y - (y%32)) - 32)/32)] instanceof SolidTile){
+		if(tileArray[(int)(((x - (x%32)))/32)][(int)(((y - (y%32)) - 32)/32) + 1] instanceof SolidTile){
 			hitAbove = true;
+		}else{
+			hitAbove = false;
 		}
 		//  2 X 4
 		if(hitLeft){
