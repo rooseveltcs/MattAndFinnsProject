@@ -33,6 +33,9 @@ public class aiCharacter extends Character  {
 		if (maybeDirection >= (inertia/2)) {
 			changeDirection();
 		}
+		if(!hitBelow){
+			y += 2;
+		}
 	}
 
 	public void changeDirection() {
