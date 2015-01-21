@@ -78,7 +78,15 @@ public abstract class Character {
 		// MIDDLE COLUMN
 		//  2 X 1
 		// This is bugged similairly to how the bottom collision would mod(%) in the wrong direction.
-		if(tileArray[findBlock(x, 0, 0)][findBlock(y,-1,1)] instanceof SolidTile){
+		if(hitLeft){
+			if(tileArray[findBlock(x, 0, 1)][findBlock(y, -1, 1)] instanceof SolidTile){
+				hitBelow = true;
+			}
+		}else if(hitRight){
+			if(tileArray[findBlock(x, 0, 0)][findBlock(y, -1, 1)] instanceof SolidTile){
+				hitBelow = true;
+			}
+		}else if(tileArray[findBlock(x, 0, 0)][findBlock(y,-1,1)] instanceof SolidTile || tileArray[findBlock(x, 0, 1)][findBlock(y,-1,1)] instanceof SolidTile){
 			hitAbove = true;
 		}else{
 			hitAbove = false;
