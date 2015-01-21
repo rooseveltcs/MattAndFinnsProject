@@ -45,8 +45,9 @@ public class aiCharacter extends Character  {
 			isMoving = !isMoving;
 			}
 		}else{
+			if (wantToChange < 50){
 			wantToChange +=2;
-			
+			}
 		}    	
 	}
 	public void changeMove() {
