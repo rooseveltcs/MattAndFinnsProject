@@ -55,6 +55,12 @@
     <property name="tileType" value="solid"/>
    </properties>
   </tile>
+  <tile id="74">
+   <properties>
+    <property name="special" value="winnable"/>
+    <property name="tileType" value="solid"/>
+   </properties>
+  </tile>
   <tile id="77">
    <properties>
     <property name="tileType" value="solid"/>
@@ -76,7 +82,7 @@
    </properties>
   </tile>
  </tileset>
- <layer name="background" width="100" height="16" visible="0">
+ <layer name="background" width="100" height="16">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAC+3SsQ3AIAwAQZfZh7D/atDQuAsi8kf5k9xRWH4imNqce06vXuTj1h3zeNcz6P+Uvp8kEVxpVMseLPZgsQeLPVie9sjvbXmWPVjswbFzU3u8xx7/MACXXq05ABkAAA==
   </data>
@@ -86,9 +92,9 @@
    H4sIAAAAAAAAC+2WMQrDMAxFVTqUDG2GNKfpmCFDIXdI7n+IqNBBhFqyW9cyyTc8EDI29n8ePBPRmVmAKydmftOIGvhwgY9khkANH/AB4KM2NB/jj47gI6+PUG8PPkaB91mO4qPWzPfsIzXzT8PbgeZjey/Lx2CQw0dK5jHDO/MUH9q8tV6bmwpm7p2ppw+NKVAfkdj3lvu/+/zSB1WQWSxX5sa0Ru8flPJRIw+B7HfMnemN3naP0H4lfZCogT8vFytmd6LtABkAAA==
   </data>
  </layer>
- <layer name="fluff" width="100" height="16" visible="0">
+ <layer name="fluff" width="100" height="16">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+3RMQqAMBAF0YiFeB71EDZpvP9d3BSGtBayA86D3y4LMxVRzLEl+wl1a7HHW1tsjx0f3LYHiz1Y7MFC7nFmP5CA3OOP7MFiDxZ7sLQeNfsJdbXYg8QeLPbIcw172IOltbgBxLHkZwAZAAA=
+   H4sIAAAAAAAAC+3RMQqAMBQE0S8WkqPZpMn972JSGLzBDjgPtl+Yo0Rxzl3pE9pa2YPEHiz2YLEHC7nHnT4QQO7xR/ZgsQeLPVhWj54+oa2XPUjswWKPnPHZyx4sq8UDRcHMPAAZAAA=
   </data>
  </layer>
 </map>

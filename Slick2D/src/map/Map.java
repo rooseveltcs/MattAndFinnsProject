@@ -50,10 +50,10 @@ public class Map extends BasicGameState {
 		loadTiledMap();
 		backgroundMusic = new Music("testdata/Music/jasonMusic.ogg");
 		backgroundMusic.loop();
-		jarbro1 = new JarBro(400, 400);
-		jarbro2 = new JarBro(350, 400);
-		jarbro3 = new JarBro(300, 400);
-		jarbro4 = new JarBro(370, 400);
+		jarbro1 = new JarBro(2200, 400);
+		jarbro2 = new JarBro(800, 400);
+		jarbro3 = new JarBro(3000, 400);
+		jarbro4 = new JarBro(1500, 400);
 		jarbro5 = new JarBro(420, 400);
 		addCharacter(jarbro1);
 		addCharacter(jarbro2);
