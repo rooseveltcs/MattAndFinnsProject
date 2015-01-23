@@ -42,8 +42,8 @@ public abstract class Character {
     	sprite.draw(x - offset_x, y - offset_y);
     }
     
-    public int findBlock(float axis,int modifier, int shift){
-    	return (int) (((axis - (axis % 32)  + (32 * modifier)) / 32)) + shift;
+    public int findBlock(float axis,int modifier){
+    	return (int) (((axis - (axis % 32)  + (32 * modifier)) / 32));
     }
     
     public void colliding() {	
@@ -61,9 +61,9 @@ public abstract class Character {
 		*/
 		//  3 x 3
 		//  3 x 2
-		if(tileArray[findBlock(x, 1, 0)][findBlock(y,1,0)] instanceof SolidTile){
+		if(tileArray[findBlock(x, 1)][findBlock(y,1)] instanceof SolidTile){
 			hitRight = true;
-		}else if(tileArray[findBlock(x, 1, 0)][findBlock(y, 0, 0)] instanceof SolidTile){
+		}else if(tileArray[findBlock(x, 1)][findBlock(y, 0)] instanceof SolidTile){
 			hitRight = true;
 		}else{
 			hitRight = false;
@@ -77,36 +77,38 @@ public abstract class Character {
 		
 		// MIDDLE COLUMN
 		//  2 X 1
-		// This is bugged similairly to how the bottom collision would mod(%) in the wrong direction.
+
 		if(hitLeft){
-			if(tileArray[findBlock(x, 0, 1)][findBlock(y, -1, 1)] instanceof SolidTile){
-				hitBelow = true;
+			if(tileArray[findBlock(x, 1)][findBlock(y, 0)] instanceof SolidTile){
+				hitAbove = true;
 			}
 		}else if(hitRight){
-			if(tileArray[findBlock(x, 0, 0)][findBlock(y, -1, 1)] instanceof SolidTile){
-				hitBelow = true;
+			if(tileArray[findBlock(x, 0)][findBlock(y, 0)] instanceof SolidTile){
+				hitAbove = true;
 			}
-		}else if(tileArray[findBlock(x, 0, 0)][findBlock(y,-1,1)] instanceof SolidTile || tileArray[findBlock(x, 0, 1)][findBlock(y,-1,1)] instanceof SolidTile){
-			hitAbove = true;
+		}else if(tileArray[findBlock(x, 0)][findBlock(y, 0)] instanceof SolidTile || tileArray[findBlock(x, 1)][findBlock(y, 0)] instanceof SolidTile){
+			hitBelow = true;
 		}else{
 			hitAbove = false;
 		}
 		//  2 X 4
 		if(hitLeft){
-			if(tileArray[findBlock(x, 0, 1)][findBlock(y, 2, 0)] instanceof SolidTile){
+			if(tileArray[findBlock(x, 1)][findBlock(y, 2)] instanceof SolidTile){
 				hitBelow = true;
 				if(!jumping){	
 					y = y - (y % 32) + 17;
 				}
 			}
 		}else if(hitRight){
-			if(tileArray[findBlock(x, 0, 0)][findBlock(y, 2, 0)] instanceof SolidTile){
+			if(tileArray[findBlock(x, 0)][findBlock(y, 2)] instanceof SolidTile){
 				hitBelow = true;
 				if(!jumping){	
 					y = y - (y % 32) + 17;
 				}
 			}
-		}else if(tileArray[findBlock(x, 0, 0)][findBlock(y, 2, 0)] instanceof SolidTile || tileArray[findBlock(x, 0, 1)][findBlock(y, 2, 0)] instanceof SolidTile){
+			
+			// you can wall jump on the left and move through side blocks while jumping
+		}else if(!hitLeft && tileArray[findBlock(x, 1)][findBlock(y, 2)] instanceof SolidTile || tileArray[findBlock(x, 1)][findBlock(y, 2)] instanceof SolidTile){
 			hitBelow = true;
 			if(!jumping){	
 				y = y - (y % 32) + 17;
@@ -125,9 +127,9 @@ public abstract class Character {
 		*/
 		//  1 x 2
 		//  1 x 3
-		if(tileArray[findBlock(x, 0, 0)][findBlock(y, 0, 0)] instanceof SolidTile){
+		if(tileArray[findBlock(x, 0)][findBlock(y, 0)] instanceof SolidTile){
 			hitLeft = true;
-		}else if(tileArray[findBlock(x, 0, 0)][findBlock(y, 1, 0)] instanceof SolidTile){
+		}else if(tileArray[findBlock(x, 0)][findBlock(y, 1)] instanceof SolidTile){
 			hitLeft = true;
 		}else{
 			hitLeft = false;

@@ -1,11 +1,12 @@
 package slickgame;
 
+import gameScreens.StartScreen;
+import gameScreens.Victoryscreen;
+
 import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
-import startscreen.StartScreen;
-import startscreen.Victoryscreen;
 import map.Map;
 //http://frums.nl/index/showpost/6/
 //http://untamed.wild-refuge.net/rmxpresources.php?characters

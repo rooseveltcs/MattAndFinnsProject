@@ -48,7 +48,6 @@ public class Player extends Character {
 		 	setJumping(false);
 		}
 		if(hitAbove){
-			System.out.println("hitabove");
 			setJumping(false);
 			falling = true;
 		}
