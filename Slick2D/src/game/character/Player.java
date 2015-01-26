@@ -9,7 +9,6 @@ import tiles.Tile;
 
 public class Player extends Character {
 	protected double thisJumpHeight = 0.0;
-	protected boolean falling = false;
 	protected double jumpSpeed = 2;
 	// Where the player's sprite collided
 	/*
