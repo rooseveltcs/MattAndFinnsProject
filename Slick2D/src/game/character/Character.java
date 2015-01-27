@@ -109,13 +109,17 @@ public abstract class Character {
 			}
 			// this needs to check if your in the air or pushing a wall before it collides you on the bottom
 			// you can wall jump on the left and move through side blocks while jumping
-		}else if(!jumping || !falling && !hitLeft && tileArray[findBlock(x, 1)][findBlock(y, 2)] instanceof SolidTile || tileArray[findBlock(x, 0)][findBlock(y, 2)] instanceof SolidTile){
-//			if(!(tileArray[findBlock(x, 0)][findBlock(y, 1)] instanceof SolidTile) && !(tileArray[findBlock(x, 0)][findBlock(y, 3)] instanceof SolidTile)){	
+		}else if(tileArray[findBlock(x, 0)][findBlock(y, 2)] instanceof SolidTile){
 				hitBelow = true;
 				if(!jumping){	
 					y = y - (y % 32) + 17;
 				}
 //			}
+		}else if((tileArray[findBlock(x, 1)][findBlock(y, 2)] instanceof SolidTile && !(tileArray[findBlock(x, 1)][findBlock(y, 1)] instanceof SolidTile))){
+			hitBelow = true;
+				if(!jumping){	
+					y = y - (y % 32) + 17;
+				}
 		}else{
 			hitBelow = false;
 		}

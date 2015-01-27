@@ -2,10 +2,7 @@ package game.character;
 //test
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
-import slickgame.SlickGame;
-import tiles.SolidTile;
-import tiles.AirTile;
-import tiles.Tile;
+import projectile.MagicMissile;
 
 public class Player extends Character {
 	protected double thisJumpHeight = 0.0;
@@ -29,8 +26,8 @@ public class Player extends Character {
 		col = tileArray[0].length;	
 	}	
 	
-	public void rangedAttack(){
-		
+	public void rangedAttack(double slope) throws SlickException{
+		MagicMissile attack = new MagicMissile(x, y, slope);
 	}
 	
 	public void jump(int delta){

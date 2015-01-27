@@ -13,9 +13,8 @@ import org.newdawn.slick.state.StateBasedGame;
 import slickgame.SlickGame;
 
 public class StartScreen extends BasicGameState implements KeyListener{
-	
+	public static Image pointer; 	
 	private Image frame; 
-	private Image pointer; 
 	private int menuX = 420;
 	private int menuY = 210;
 	private int menuSpacing = 75;
@@ -59,7 +58,7 @@ public class StartScreen extends BasicGameState implements KeyListener{
 				g.drawString(optionThree, menuX, menuY + (2 * menuSpacing));
 			}
 		}
-
+	
 	@Override
 	public void init(GameContainer gc, StateBasedGame arg1)
 			throws SlickException {
