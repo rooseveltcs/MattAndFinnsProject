@@ -12,8 +12,8 @@ public class MouseAndKeyBoardControls {
 	private Player controlledPlayer;
 	
 	public MouseAndKeyBoardControls(Player player){
+		// player that is being effected by these controls
 		controlledPlayer = player;
-		// map.Map.this.getTiles();
 	}
 
 	public void handleInput(Input i, int delta) throws SlickException{
@@ -25,6 +25,7 @@ public class MouseAndKeyBoardControls {
 			controlledPlayer.hitBelow = false;
 			controlledPlayer.setJumping(true);
 		}if(i.isKeyPressed(Input.KEY_SPACE)){
+			// ranged attack not functional yet
 			controlledPlayer.rangedAttack((controlledPlayer.getY() - Mouse.getY()) / (controlledPlayer.getX() - Mouse.getX()));	
 		}else if(i.isKeyDown(Input.KEY_ESCAPE)){
 			SlickGame.Game.enterState(0);

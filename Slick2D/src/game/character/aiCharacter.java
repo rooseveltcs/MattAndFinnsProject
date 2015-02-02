@@ -13,7 +13,8 @@ public class aiCharacter extends Character  {
 	public aiCharacter(float x, float y) throws SlickException {
 		super(x, y);
 	}
-	
+	//responds to collision to move the jarbro along its normal path 
+	//and chooses when to change direction
 	public void move(int delta) { 
 		if (isMoving){
 			}if(hitLeft || hitRight){
@@ -37,9 +38,8 @@ public class aiCharacter extends Character  {
 			y += 2;
 		}
 	}
-
+	// changes direction
 	public void changeDirection() {
-
 		int changeDirection = (int) (100*Math.random());
 		if (changeDirection >= inertia - wantToChange){
 			direction = !direction;
