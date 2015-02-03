@@ -103,14 +103,11 @@ public class Map extends BasicGameState {
 			player.fall(delta, 0.5);
 		}
 		aiCharacter s = placeHolder;
+		//checks all characters and carries out automated movement
 		for(int i = 0; i < characters.size(); i++){
 			if(characters.get(i) instanceof aiCharacter){
 				s = (aiCharacter) characters.get(i);
-				if(!s.isMoving){
-					s.changeMove();
-				}else{
-					s.move(delta);
-				}
+				s.move(delta);
 			}
 		}
 		playerControls.handleInput(container.getInput(), delta);
@@ -120,6 +117,7 @@ public class Map extends BasicGameState {
 	}
 
 	public void render(GameContainer container, StateBasedGame sbg, Graphics g) throws SlickException {
+		//offset represents how far the player has scrolled down the level
 		int x_offset = getXOffset();
 		int y_offset = getYOffset();
 		renderBackground();
@@ -147,7 +145,7 @@ public class Map extends BasicGameState {
 	public int getYOffset(){
 		int y_offset = 0;
 
-		int halfHigh = (int) (375);
+		int halfHigh = (int) (256);
 
 		int maxUp = (int) (map.getHeight()*32)-halfHigh;
 
