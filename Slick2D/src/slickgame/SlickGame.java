@@ -8,16 +8,17 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
 import map.Map;
-//http://frums.nl/index/showpost/6/
+//source for sprites.
 //http://untamed.wild-refuge.net/rmxpresources.php?characters
 
-
+//Initializes various states - ie, on level, in menu, and so on.
 public class SlickGame extends StateBasedGame {
 	public static final int STARTSCREEN = 0;
 	// private static SlickGame Game;
 	public StartScreen Menu = new StartScreen("");
 	public static SlickGame Game = new SlickGame("Game");
 	public Map level1 = new Map("hope");
+	//not working yet - need victory checking code/victory screen.
 	public Victoryscreen victory = new Victoryscreen();
 
 	public static void main(String[] args) throws SlickException {

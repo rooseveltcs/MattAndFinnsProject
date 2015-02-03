@@ -48,7 +48,8 @@ public class aiCharacter extends Character  {
 	}
 	//Direction change logic
 	public void changeDirection() {
-		//inertia = 101. WantToChange increases each time this test fails, up to 
+		//inertia = 101. WantToChange increases each time this test fails, up to 50,
+		//or a 49% chance to change direction.
 		int changeDirection = (int) (100*Math.random());
 		if (changeDirection >= inertia - wantToChange){
 			direction = !direction;

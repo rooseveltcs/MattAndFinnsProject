@@ -30,6 +30,7 @@ public class Map extends BasicGameState {
 	private JarBro jarbro3;
 	private JarBro jarbro4;
 	private JarBro jarbro5;
+	//this is used to check which characters are AI controlled in update.
 	private aiCharacter placeHolder;
 	// this is here to receive input.
 	public  MouseAndKeyBoardControls playerControls;
@@ -48,6 +49,7 @@ public class Map extends BasicGameState {
 		characters = new ArrayList<Character>();
 		background = new Image("testdata/data/img/backgrounds/" + map.getMapProperty("background", "cabin.png")); 
 		loadTiledMap();
+		//Our music loop! Credit to Jason Dan.
 		backgroundMusic = new Music("testdata/Music/jasonMusic.ogg");
 		backgroundMusic.loop();
 		jarbro1 = new JarBro(2200, 400);
@@ -73,6 +75,8 @@ public class Map extends BasicGameState {
 		tileArray = new Tile[map.getWidth()][map.getHeight()];  
 		// gets index layer of the collision layer made in Tiled.
 		int layerIndex = map.getLayerIndex("CollisionLayer");
+		//goes through all the tiles in CollisionLayer and labels them as solid or air(depending on assignment in tiled).
+		//default is air. This applies to empty tiles.
 		for(int x = 0; x < map.getWidth(); x++){
 			for(int y = 0; y < map.getHeight(); y++){
 				int tileID = map.getTileId(x, y, layerIndex);
@@ -132,16 +136,20 @@ public class Map extends BasicGameState {
 		int halfOfScreen = 500;
 		int maxOffsetPostition = (int) (map.getWidth()*32)-halfOfScreen;
 
+		//player is on leftmost half of screen, no need to scroll.
 		if(player.getX() < halfOfScreen){
 			x_offset = 0;
+		//player is near the rightmost edge.
 		}else if(player.getX() > maxOffsetPostition){
 			x_offset = maxOffsetPostition - halfOfScreen;
+		//player is in the middle of the map.
 		}else{
 			x_offset = (int) (player.getX()-halfOfScreen);
 		}
 		return x_offset;
 	}
 
+	//appears to be functional, but current map is too small to require up/down scrolling.
 	public int getYOffset(){
 		int y_offset = 0;
 
@@ -156,9 +164,7 @@ public class Map extends BasicGameState {
 		}else{
 			y_offset = (int) (player.getY()-halfHigh);
 		}
-		// stops scrolling along the y, so that i can fix jumping first
-		return 0;
-		// return y_offset;
+		return y_offset;
 	}
 
 	private void renderBackground() {
