@@ -78,21 +78,22 @@
   </tile>
   <tile id="97">
    <properties>
+    <property name="note" value="invisible wall"/>
     <property name="tileType" value="solid"/>
    </properties>
   </tile>
  </tileset>
- <layer name="background" width="100" height="16">
+ <layer name="background" width="100" height="16" visible="0">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAC+3SsQ3AIAwAQZfZh7D/atDQuAsi8kf5k9xRWH4imNqce06vXuTj1h3zeNcz6P+Uvp8kEVxpVMseLPZgsQeLPVie9sjvbXmWPVjswbFzU3u8xx7/MACXXq05ABkAAA==
   </data>
  </layer>
  <layer name="CollisionLayer" width="100" height="16">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+2WMQrDMAxFVTqUDG2GNKfpmCFDIXdI7n+IqNBBhFqyW9cyyTc8EDI29n8ePBPRmVmAKydmftOIGvhwgY9khkANH/AB4KM2NB/jj47gI6+PUG8PPkaB91mO4qPWzPfsIzXzT8PbgeZjey/Lx2CQw0dK5jHDO/MUH9q8tV6bmwpm7p2ppw+NKVAfkdj3lvu/+/zSB1WQWSxX5sa0Ru8flPJRIw+B7HfMnemN3naP0H4lfZCogT8vFytmd6LtABkAAA==
+   H4sIAAAAAAAAC+2WTQrCQAxGIy7EhbpQT+OyiyJC71DvfwgjWAhhZjI/NSltAg+mmTLtfK8tHQFgj7wdU3bI+ONIxo4NB/dRDETG7sN9bJ3OfSyKqagfOt8Heu7DzkestwYfPSGWjXTO3PDv1dp8aOfZylQ1PlJ7fCr6KM08VNYe+P3R7Pm+pPejE5jDR0nmOWWdeSpLYMehc6Q1cuYGxcytc22h1UeKITLeIrnPW8pHzf/uq9IHFF7HkhNyRi5C7x9o+VgiDwLtX5Ebchd6fI3Yepo+gIwde74uPpIGWjQAGQAA
   </data>
  </layer>
- <layer name="fluff" width="100" height="16">
+ <layer name="fluff" width="100" height="16" visible="0">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAC+3RMQqAMBQE0S8WkqPZpMn972JSGLzBDjgPtl+Yo0Rxzl3pE9pa2YPEHiz2YLEHC7nHnT4QQO7xR/ZgsQeLPVhWj54+oa2XPUjswWKPnPHZyx4sq8UDRcHMPAAZAAA=
   </data>
