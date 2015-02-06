@@ -13,6 +13,8 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.tiled.TiledMap;
+
+import slickgame.SlickGame;
 import tiles.AirTile;
 import tiles.SolidTile;
 import tiles.Tile;
@@ -117,6 +119,10 @@ public class Map extends BasicGameState {
 		playerControls.handleInput(container.getInput(), delta);
 		for(int z = 0; z < characters.size(); z++){
 			characters.get(z).colliding();
+		}
+		//quick and sloppy win condition
+		if(player.getX() >= (94 * 32) && player.getX() <= (96 * 32) && player.getY() <= (10 * 32)){
+			SlickGame.Game.enterState(2);
 		}
 	}
 
