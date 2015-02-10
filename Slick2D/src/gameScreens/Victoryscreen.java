@@ -26,10 +26,11 @@ public class Victoryscreen extends BasicGameState implements KeyListener{
 	private Image ball14;
 	private Animation animation;
 	private Image[] animationFrames;
+	private int delay = 95;
 	
 	@Override
 	public void init(GameContainer game, StateBasedGame arg1) throws SlickException {
-		animationFrames = new Image[13];
+		animationFrames = new Image[14];
 		ball1 = new Image("testdata/anims/ball1.png");
 		ball2 = new Image("testdata/anims/ball2.png");
 		ball3 = new Image("testdata/anims/ball3.png");
@@ -59,20 +60,20 @@ public class Victoryscreen extends BasicGameState implements KeyListener{
 		animationFrames[12] = ball13;
 		animationFrames[13] = ball14;
 		animation = new Animation();		
-		animation.addFrame(animationFrames[0], 15);
-		animation.addFrame(animationFrames[1], 15);
-		animation.addFrame(animationFrames[2], 15);
-		animation.addFrame(animationFrames[3], 15);
-		animation.addFrame(animationFrames[3], 15);
-		animation.addFrame(animationFrames[3], 15);
-		animation.addFrame(animationFrames[3], 15);
-		animation.addFrame(animationFrames[3], 15);
-		animation.addFrame(animationFrames[3], 15);
-		animation.addFrame(animationFrames[3], 15);
-		animation.addFrame(animationFrames[3], 15);
-		animation.addFrame(animationFrames[3], 15);
-		animation.addFrame(animationFrames[3], 15);
-		animation.addFrame(animationFrames[3], 15);
+		animation.addFrame(animationFrames[0], delay);
+		animation.addFrame(animationFrames[1], delay);
+		animation.addFrame(animationFrames[2], delay);
+		animation.addFrame(animationFrames[3], delay);
+		animation.addFrame(animationFrames[4], delay);
+		animation.addFrame(animationFrames[5], delay);
+		animation.addFrame(animationFrames[6], delay);
+		animation.addFrame(animationFrames[7], delay);
+		animation.addFrame(animationFrames[8], delay);
+		animation.addFrame(animationFrames[9], delay);
+		animation.addFrame(animationFrames[10], delay);
+		animation.addFrame(animationFrames[11], delay);
+		animation.addFrame(animationFrames[12], delay);
+		animation.addFrame(animationFrames[13], delay);
 	}
 
 	@Override
