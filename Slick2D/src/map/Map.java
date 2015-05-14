@@ -54,17 +54,17 @@ public class Map extends BasicGameState {
 		//Our music loop! Credit to Jason Dan.
 		backgroundMusic = new Music("testdata/Music/jasonMusic.ogg");
 		backgroundMusic.loop();
-		jarbro1 = new JarBro(2200, 400);
-		jarbro2 = new JarBro(800, 400);
-		jarbro3 = new JarBro(3000, 400);
-		jarbro4 = new JarBro(1500, 400);
-		jarbro5 = new JarBro(420, 400);
+		player = new Player(128,400);
+		jarbro1 = new JarBro(2200, 400, player);
+		jarbro2 = new JarBro(800, 400, player);
+		jarbro3 = new JarBro(3000, 400, player);
+		jarbro4 = new JarBro(1500, 400, player);
+		jarbro5 = new JarBro(420, 400, player);
 		addCharacter(jarbro1);
 		addCharacter(jarbro2);
 		addCharacter(jarbro3);
 		addCharacter(jarbro4);
 		addCharacter(jarbro5);
-		player = new Player(128,400);
 		addCharacter(player);
 		playerControls = new MouseAndKeyBoardControls(player); 
 	}
